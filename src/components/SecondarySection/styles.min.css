@@ -9,12 +9,3 @@
   font-size: 17pt;
   padding: 2rem 0 1rem 0;
 }
-
- li {
-  list-style-type: circle;
-}
-
-.ContentSecondarySection ul li {
-  padding: .1rem;
-  list-style-type: disc;
-}

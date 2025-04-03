@@ -6,17 +6,22 @@ import ContactButton from '../ContactButton'
 
 function MyWork() {
   const images = [
-    { url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF8SZ_WJraRVMFXlhzoTK2HNAVCO5iqHtiWtt1tUzD9fr2n0HxYwpkpM51&s=10" },
-    { url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF8SZ_WJraRVMFXlhzoTK2HNAVCO5iqHtiWtt1tUzD9fr2n0HxYwpkpM51&s=10" },
-    { url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF8SZ_WJraRVMFXlhzoTK2HNAVCO5iqHtiWtt1tUzD9fr2n0HxYwpkpM51&s=10" },
-    { url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF8SZ_WJraRVMFXlhzoTK2HNAVCO5iqHtiWtt1tUzD9fr2n0HxYwpkpM51&s=10" },
-    { url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF8SZ_WJraRVMFXlhzoTK2HNAVCO5iqHtiWtt1tUzD9fr2n0HxYwpkpM51&s=10" },
+    { url: "../../../public/images_services/image-1.jpeg" },
+    { url: "../../../public/images_services/image-2.jpeg" },
+    { url: "../../../public/images_services/image-3.jpeg" },
+    { url: "../../../public/images_services/image-4.jpeg" },
+    { url: "../../../public/images_services/image-5.jpeg" },
+    { url: "../../../public/images_services/image-6.jpeg" },
+    { url: "../../../public/images_services/image-7.jpeg" },
+    { url: "../../../public/images_services/image-8.jpeg" },
+    { url: "../../../public/images_services/image-9.jpeg" },
+    { url: "../../../public/images_services/image-10.jpeg" }
   ];
 
   return (
     <>
-    <h2 className="text-2xl pt-14 py-2 text-center bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400">Alguns serviços já prestados</h2>
-    <div className="flex overflow-hidden justify-center items-center py-2 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400">
+    <h2 className="text-2xl pt-14 py-2 text-white text-center bg-gray-800 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400">Alguns serviços já prestados</h2>
+    <div className="flex overflow-hidden justify-center items-center pt-2 pb-20 bg-gray-800 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400">
       <Swiper
         effect="cards"
         grabCursor={true}

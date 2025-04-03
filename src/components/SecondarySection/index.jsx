@@ -23,9 +23,9 @@ function SecondarySection() {
           <p>A manutenção preventiva evita falhas inesperadas e melhora a eficiência do seu ar-condicionado. Agende agora uma visita técnica e garanta um ambiente climatizado sem preocupações!</p>
         </div>
         < ContactButton
-    contact="https://wa.me/+5561981323772"
-    text="Solicitar Orçamento"
-    />
+          contact="https://wa.me/+5561981323772"
+          text="Solicitar Orçamento"
+        />
       </div>
     </>
   )

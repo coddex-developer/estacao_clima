@@ -1,0 +1,20 @@
+.SecondarySection {
+  padding: 1rem;
+  text-align: center;
+}
+
+.SecondarySection h3 {
+  font-weight: 400;
+  text-align: center;
+  font-size: 17pt;
+  padding: 2rem 0 1rem 0;
+}
+
+ li {
+  list-style-type: circle;
+}
+
+.ContentSecondarySection ul li {
+  padding: .1rem;
+  list-style-type: disc;
+}

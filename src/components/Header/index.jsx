@@ -1,10 +1,9 @@
 import { useEffect } from "react";
-
+import oppenShopJpeg from "/banners/oppen-shop.jpeg"
 function Header() {
   const images = [
-    { url: "https://imgs.search.brave.com/PA34zg-ZDgXOLUfOV8rI6m9CrCNSCd--5lFRHOKmR8M/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtZ3JhdGlz/L2Nvbmp1bnRvLWRl/LWZlcnJhbWVudGFz/LWVtLXVtLWtpdC1k/ZS1mZXJyYW1lbnRh/cy1pc29sYWRvXzEz/MDMtMjAzMTkuanBn/P3NlbXQ9YWlzX2h5/YnJpZA" },
-    { url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF8SZ_WJraRVMFXlhzoTK2HNAVCO5iqHtiWtt1tUzD9fr2n0HxYwpkpM51&s=10" },
-    { url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcOVVOx4tArpXVtbipvHL9nCtKZ7MFwsXQ9hw5qoOqho01x46MEFzhIVs&s=10" },
+    { url: "/banners/banner-2.jpeg" },
+    { url: "/banners/banner-1.jpeg" }
   ];
 
   useEffect(() => {
@@ -30,17 +29,19 @@ function Header() {
 
   return (
     <>
-    <section className="splide" aria-label="Splide Basic HTML Example">
-      <div className="splide__track">
-        <ul className="splide__list">
-          {images.map((img, index) => (
-            <li key={index} className="splide__slide">
-              <img className="h-90 w-full" src={img.url} alt={`slide-image-${index + 1}`} />
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+      <section className="splide h-[370px]" aria-label="Splide Basic HTML Example">
+        <div className="splide__track h-[370px]">
+          <ul className="splide__list">
+            {images.map((img, index) => (
+              <li key={index} className="splide__slide">
+                <img className="h-full w-full" src={img.url} alt={`slide-image-${index + 1}`} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <a href="#"><img src={oppenShopJpeg} alt="shopping-sale" srcset={oppenShopJpeg} className="h-30 w-full cursor-pointer" />
+      </a>
     </>
   );
 }

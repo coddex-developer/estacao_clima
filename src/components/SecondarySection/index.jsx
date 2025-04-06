@@ -1,5 +1,6 @@
 import './styles.min.css'
 import ContactButton from '../ContactButton'
+import NotificationCard from '../NotificationCard'
 function SecondarySection() {
 
   return (
@@ -11,17 +12,26 @@ function SecondarySection() {
         </div>
         <div className="ContentSecondarySection">
           <h3>Por Que Escolher a Estação Clima?</h3>
-          <ul>
-            <li>Profissional experientes e capacitado</li>
-            <li>Atendimento rápido e eficiente</li>
-            <li>Serviço com garantia e qualidade</li>
-            <li>Manutenção preventiva para evitar gastos desnecessários</li>
+          <ul className='listContainer'>
+            < NotificationCard
+              text='Profissional experientes e capacitado'
+            />
+            < NotificationCard
+              text='Atendimento rápido e eficiente'
+            />
+            < NotificationCard
+              text='Serviço com garantia e qualidade'
+            />
+            < NotificationCard
+              text='Manutenção preventiva para evitar gastos desnecessários'
+            />
           </ul>
         </div>
         <div className="ContentSecondarySection">
           <h3>Mantenha Seu Climatizador Sempre em Perfeito Estado</h3>
           <p>A manutenção preventiva evita falhas inesperadas e melhora a eficiência do seu ar-condicionado. Agende agora uma visita técnica e garanta um ambiente climatizado sem preocupações!</p>
         </div>
+
         < ContactButton
           contact="https://wa.me/+5561981323772"
           text="Solicitar Orçamento"

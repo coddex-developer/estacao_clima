@@ -7,7 +7,7 @@ function ContactButton(props) {
         <a className="fancy" href={props.contact}>
           <span className="top-key"></span>
           <span className="text">{props.text}</span>
-          <span classNane="bottom-key-1"></span>
+          <span className="bottom-key-1"></span>
           <span className="bottom-key-2"></span>
         </a>
       </div>

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import oppenShopJpeg from "/banners/oppen-shop.jpeg"
+
 function Header() {
   const images = [
     { url: "/banners/banner-2.jpeg" },
@@ -40,8 +40,7 @@ function Header() {
           </ul>
         </div>
       </section>
-      <a href="#"><img src={oppenShopJpeg} alt="shopping-sale" srcset={oppenShopJpeg} className="h-30 w-full cursor-pointer" />
-      </a>
+      
     </>
   );
 }

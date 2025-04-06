@@ -10,10 +10,15 @@
   padding: 2rem 0 1rem 0;
 }
 
-.listContainer li {
-  list-style-type: none;
-  border-bottom: 1px solid #000;
-  padding-bottom: .5rem;
-  background-color: #e5e5e5;
-  margin-top: .5rem;
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 800px) {
+    .listContainer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
 }

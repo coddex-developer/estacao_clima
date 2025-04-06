@@ -10,7 +10,7 @@ function SecondarySection() {
           <h3>Nossos serviços</h3>
           <p>Trabalhamos com instalação de equipamentos, manutenção corretiva para solucionar problemas e manutenção preventiva para garantir que seu equipamento funcione perfeitamente, aumentando sua vida útil e reduzindo o consumo de energia.</p>
         </div>
-        <div className="ContentSecondarySection">
+        <div className="ContentSecondarySection py-9">
           <h3>Por Que Escolher a Estação Clima?</h3>
           <ul className='listContainer'>
             < NotificationCard

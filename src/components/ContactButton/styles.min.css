@@ -1,5 +1,5 @@
 .fancy {
- background-color: rgb(124, 123, 123);
+ background-color: orangered;
  border: 2px solid #000;
  border-radius: 10px;
  box-sizing: border-box;
@@ -78,7 +78,7 @@
 
 .fancy:hover {
  color: white;
- background: #1F2937;
+ background: rgb(218, 147, 17);
 }
 
 .fancy:hover::before {

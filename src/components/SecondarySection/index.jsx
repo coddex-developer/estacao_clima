@@ -37,11 +37,11 @@ function SecondarySection() {
           text="Solicitar Orçamento"
         />
 
-<div className="w-full pt-12 h-[400px] rounded-xl overflow-hidden shadow-lg">
+<div className="w-full flex justify-center flex-col items-center pt-12 h-[400px] rounded-xl overflow-hidden">
   <h3 className='titleAddres'>Nosso endereço</h3>
   <iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019065254568!2d-122.41941568468148!3d37.77492977975895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808e0ef1b6e1%3A0x3d6e6c1b8a0d9364!2sSan+Francisco%2C+CA%2C+USA!5e0!3m2!1sen!2sbr!4v1616618459486!5m2!1sen!2sbr"
-    width="100%"
+    width="90%"
     height="100%"
     allowFullScreen=""
     loading="lazy"

@@ -40,7 +40,7 @@ function MyWork() {
       </Swiper>
     </div>
     < ContactButton
-    contact="https://wa.me/+5561981323772"
+    contact="https://wa.me/+5561996654539"
     text="Solicitar Orçamento"
     />
     </>

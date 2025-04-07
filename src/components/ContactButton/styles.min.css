@@ -1,9 +1,7 @@
 .fancy {
- background-color: #1f293777;
- border: 2px solid #000;
+ border: 2px solid;
  border-radius: 10px;
  box-sizing: border-box;
- color: #fff;
  cursor: pointer;
  display: inline-block;
  font-weight: 700;
@@ -43,7 +41,6 @@
  transition: all 0.3s ease-in-out;
  text-transform: uppercase;
  text-decoration: none;
- color: #000;
 }
 
 .fancy .top-key {

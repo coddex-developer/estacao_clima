@@ -1,24 +1,128 @@
 [
-    {
-      "image": "/images_products/esponjosoweb.jpg",
-      "name": "Esponjoso",
-      "info": [
-        {
-          "item": "Tamanho 1/4 - R$ 3,50"
-        },
-        {
-          "item": "Tamanho 3/8 - R$ 3,80"
-        },
-        {
-          "item": "Tamanho 1/2 - R$ 4,50"
-        },
-        {
-          "item": "Tamanho 5/8 - R$ 4,50"
-        },
-        {
-          "item": "Tamanho 3/4 - R$ 6,00"
-        }
-      ]
-    }
-  ]
-  
+  {
+    "id": 1,
+    "type": ["Esponjoso"],
+    "image": "/images_products/esponjosoweb.jpg",
+    "name": "Produto1 - Esponjoso",
+    "info": [
+      { "item": "Tamanho 1/4 - R$ 3,50" },
+      { "item": "Tamanho 3/8 - R$ 3,80" },
+      { "item": "Tamanho 1/2 - R$ 4,50" },
+      { "item": "Tamanho 5/8 - R$ 4,50" },
+      { "item": "Tamanho 3/4 - R$ 6,00" }
+    ]
+  },
+  {
+    "id": 2,
+    "type": ["Cobre"],
+    "image": "/images_products/cobre1.jpg",
+    "name": "Produto2 - Tubo de Cobre",
+    "info": [
+      { "item": "Tubo 1/4 - R$ 15,00" },
+      { "item": "Tubo 3/8 - R$ 17,00" },
+      { "item": "Tubo 1/2 - R$ 22,00" }
+    ]
+  },
+  {
+    "id": 3,
+    "type": ["Cobre"],
+    "image": "/images_products/cobre2.jpg",
+    "name": "Produto3 - Curva Cobre",
+    "info": [
+      { "item": "Curva 90° 1/4 - R$ 4,00" },
+      { "item": "Curva 90° 3/8 - R$ 4,50" }
+    ]
+  },
+  {
+    "id": 4,
+    "type": ["Acessórios"],
+    "image": "/images_products/fita-isolante.jpg",
+    "name": "Produto4 - Fita Isolante",
+    "info": [
+      { "item": "Rolo com 10m - R$ 3,50" }
+    ]
+  },
+  {
+    "id": 5,
+    "type": ["Acessórios"],
+    "image": "/images_products/suporte.jpg",
+    "name": "Produto5 - Suporte para Condensadora",
+    "info": [
+      { "item": "Suporte Universal - R$ 35,00" }
+    ]
+  },
+  {
+    "id": 6,
+    "type": ["Gás"],
+    "image": "/images_products/gas-r410.jpg",
+    "name": "Produto6 - Gás R410A",
+    "info": [
+      { "item": "Carga 750g - R$ 65,00" }
+    ]
+  },
+  {
+    "id": 7,
+    "type": ["Gás"],
+    "image": "/images_products/gas-r22.jpg",
+    "name": "Produto7 - Gás R22",
+    "info": [
+      { "item": "Carga 1kg - R$ 70,00" }
+    ]
+  },
+  {
+    "id": 8,
+    "type": ["Ferramentas"],
+    "image": "/images_products/bomba-vacuo.jpg",
+    "name": "Produto8 - Bomba de Vácuo",
+    "info": [
+      { "item": "1 Estágio - R$ 380,00" },
+      { "item": "2 Estágios - R$ 520,00" }
+    ]
+  },
+  {
+    "id": 9,
+    "type": ["Ferramentas"],
+    "image": "/images_products/manifold.jpg",
+    "name": "Produto9 - Manifold",
+    "info": [
+      { "item": "Com mangueiras - R$ 150,00" }
+    ]
+  },
+  {
+    "id": 10,
+    "type": ["Isolamento"],
+    "image": "/images_products/isolamento.jpg",
+    "name": "Produto10 - Espuma Isolante",
+    "info": [
+      { "item": "Tubo 3/8 - R$ 4,00" },
+      { "item": "Tubo 1/2 - R$ 4,80" }
+    ]
+  },
+  {
+    "id": 11,
+    "type": ["Elétrica"],
+    "image": "/images_products/cabo-eletrico.jpg",
+    "name": "Produto11 - Cabo Elétrico",
+    "info": [
+      { "item": "Rolo 100m - 2,5mm - R$ 230,00" }
+    ]
+  },
+  {
+    "id": 12,
+    "type": ["Elétrica"],
+    "image": "/images_products/disjuntor.jpg",
+    "name": "Produto12 - Disjuntor Bipolar",
+    "info": [
+      { "item": "20A - R$ 18,00" }
+    ]
+  },
+  {
+    "id": 13,
+    "type": ["Acessórios"],
+    "image": "/images_products/dreno.jpg",
+    "name": "Produto13 - Mangueira de Dreno",
+    "info": [
+      { "item": "Rolo 20m - R$ 25,00" }
+    ]
+  }
+]

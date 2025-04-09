@@ -13,8 +13,8 @@ function Products() {
   return (
     <>
       <Navbar />
-      <div className="p-6 bg-gray-100 dark:bg-gray-700 min-h-screen transition-colors duration-300">
-        <h1 className="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-gray-300">
+      <div className="p-6 bg-gray-100 dark:bg-gray-800 min-h-screen transition-colors duration-300">
+        <h1 className="text-3xl font-bold mt-20 mb-6 text-center text-gray-800 dark:text-gray-300">
           Produtos
         </h1>
         <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

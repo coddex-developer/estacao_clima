@@ -56,12 +56,12 @@ function Navbar() {
             isMobileMenuOpen ? "block" : "hidden"
           }`}
         >
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium  md:border-transparent rounded-lg bg-gray-300 md:flex-row md:space-x-8 md:mt-0 md:bg-transparent dark:bg-gray-900 md:dark:bg-transparent dark:border-gray-700">
+          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium  md:border-transparent rounded-lg bg-gray-200 md:flex-row md:space-x-8 md:mt-0 md:bg-transparent dark:bg-gray-900 md:dark:bg-transparent dark:border-gray-700">
 
             <li>
               <Link
                 to="/"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-200 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500"
+                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500"
               >
                 Home
               </Link>
@@ -69,7 +69,7 @@ function Navbar() {
             <li>
               <Link
                 to="/products"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-200 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500"
+                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500"
               >
                 Produtos
               </Link>
@@ -77,7 +77,7 @@ function Navbar() {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-200 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500"
+                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500"
               >
                 Serviços
               </a>
@@ -85,7 +85,7 @@ function Navbar() {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-200 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500"
+                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500"
               >
                 Sobre
               </a>
@@ -93,7 +93,7 @@ function Navbar() {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-200 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500"
+                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500"
               >
                 Contato
               </a>

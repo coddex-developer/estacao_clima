@@ -18,7 +18,7 @@ function Footer() {
                     <a href="https://wa.me/+5561996654539" target="_blank" className="hover:underline">Whatsapp</a>
                   </li>
                   <li>
-                    <a href="https://instagram.com/estaçãoclima2104" target="_blank" className="hover:underline">Instagram</a>
+                    <a href="https://instagram.com/estacaoclima2104" target="_blank" className="hover:underline">Instagram</a>
                   </li>
                 </ul>
               </div>

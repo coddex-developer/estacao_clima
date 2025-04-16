@@ -2,8 +2,9 @@ import { useEffect } from "react";
 
 function Header() {
   const images = [
-    { url: "/banners/banner-2.jpeg" },
-    { url: "/banners/banner-1.jpeg" }
+    { url: "/banners/bg-03.png" },
+    { url: "/banners/bg-02.png" },
+    { url: "/banners/bg-01.png" }
   ];
 
   useEffect(() => {
@@ -30,7 +31,7 @@ function Header() {
   return (
     <>
       <section className="splide pt-20 h-full" aria-label="Splide Basic HTML Example">
-        <div className="splide__track h-[370px]">
+        <div className="splide__track h-full">
           <ul className="splide__list">
             {images.map((img, index) => (
               <li key={index} className="splide__slide">

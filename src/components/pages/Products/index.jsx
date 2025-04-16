@@ -75,7 +75,7 @@ function Products() {
             <div className="mt-8 flex justify-center">
               <button
                 onClick={handleLoadMore}
-                className="px-6 py-2 text-sm font-medium text-gray-800 border border-gray-800 rounded-lg hover:border-gray-900 hover:text-gray-900 dark:text-gray-300 dark:border-gray-900 dark:hover:border-gray-800"
+                className="px-6 py-2 text-sm invisible font-medium text-gray-800 border border-gray-800 rounded-lg hover:border-gray-900 hover:text-gray-900 dark:text-gray-300 dark:border-gray-900 dark:hover:border-gray-800"
               >
                 Carregar mais
               </button>

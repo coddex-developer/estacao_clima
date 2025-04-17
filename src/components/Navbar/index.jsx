@@ -63,7 +63,7 @@ function Navbar() {
                   to="/"
                   className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500"
                 >
-                  Home
+                  <i class="bi bi-house"></i> Home
                 </Link>
               </li>
 
@@ -72,7 +72,7 @@ function Navbar() {
                   to="/products"
                   className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500"
                 >
-                  Produtos
+                  <i class="bi bi-cart4"></i> Produtos
                 </Link>
               </li>
 
@@ -81,7 +81,7 @@ function Navbar() {
                   to="/services"
                   className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500"
                 >
-                  Serviços
+                  <i class="bi bi-snow3"></i> Serviços
                 </Link>
               </li>
 
@@ -91,7 +91,7 @@ function Navbar() {
                   target="_blank"
                   className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500"
                 >
-                  Contato
+                  <i class="bi bi-whatsapp"></i> Contato
                 </a>
               </li>
 

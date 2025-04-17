@@ -15,7 +15,13 @@ function MyWork() {
     { url: "/images_services/image-7.jpeg" },
     { url: "/images_services/image-8.jpeg" },
     { url: "/images_services/image-9.jpeg" },
-    { url: "/images_services/image-10.jpeg" }
+    { url: "/images_services/image-10.jpeg" },
+    { url: "/images_services/image-11.jpg" },
+    { url: "/images_services/image-12.jpg" },
+    { url: "/images_services/image-13.jpg" },
+    { url: "/images_services/image-14.jpg" },
+    { url: "/images_services/image-15.jpg" },
+    { url: "/images_services/image-16.jpg" }
   ];
 
   return (
@@ -26,7 +32,7 @@ function MyWork() {
         effect="cards"
         grabCursor={true}
         modules={[EffectCards]}
-        className="w-[300px] h-[300px]"
+        className="w-[320px] h-[320px]"
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>

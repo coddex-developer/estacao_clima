@@ -76,6 +76,16 @@
   },
 
   {
+    "id": 52,
+    "type": ["Acessórios"],
+    "image": "/images_products/cxDreno.webp",
+    "name": "Caixa de Passagem Ar Condicionado Split",
+    "info": [
+      { "item": "Dimensão 29,0 x 16,4 x 5,0  - R$ 22,00" }
+    ]
+  },
+
+  {
     "id": 501,
     "type": ["Fixação"],
     "image": "/images_products/buchas-8-10.jpg",
@@ -111,7 +121,7 @@
     "image": "/images_products/gasR410a.avif",
     "name": "Gás Refrigerante R410a EOS",
     "info": [
-      { "item": "Cilindro de 750g com Válvula e Manopla - R$ 86,40" }
+      { "item": "Cilindro de 750g com Válvula e Manopla - R$ 120,00" }
     ]
   },
   {
@@ -120,7 +130,7 @@
     "image": "/images_products/gasR22.avif",
     "name": "Gás Refrigerante R22 EOS",
     "info": [
-      { "item": "Cilindro de 800g - R$ 80,00" }
+      { "item": "Cilindro de 800g - R$ 120,00" }
     ]
   },
 

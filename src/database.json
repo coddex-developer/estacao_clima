@@ -18,11 +18,11 @@
     "image": "/images_products/cobre.webp",
     "name": "Tubo de Cobre",
     "info": [
-      { "item": "Tubo 1/4 - R$ 13,50" },
-      { "item": "Tubo 3/8 - R$ 20,20" },
-      { "item": "Tubo 1/2 - R$ 27,00" },
-      { "item": "Tubo 5/8 - R$ 33,20" },
-      { "item": "Tubo 3/4 - R$ 40,00" }
+      { "item": "Tubo 1/4 - R$ 13,50/m" },
+      { "item": "Tubo 3/8 - R$ 20,20/m" },
+      { "item": "Tubo 1/2 - R$ 27,00/m" },
+      { "item": "Tubo 5/8 - R$ 33,20/m" },
+      { "item": "Tubo 3/4 - R$ 40,00/m" }
     ]
   },
   {

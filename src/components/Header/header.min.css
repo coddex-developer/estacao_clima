@@ -1,7 +1,8 @@
 .box_slide {
-    padding: 6rem 2rem 2rem 2rem;
-    border-bottom-right-radius: 50px;
-    background-image: linear-gradient(-30deg, rgb(8, 64, 119), #16232e);
+    padding: 6rem 1rem 3rem 1rem;
+    height: 90vh;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .splide__list li img {
@@ -12,6 +13,8 @@
 
 @media screen and (min-width: 523px) {
     .box_slide {
+        padding: 7rem 0 2rem 0;
+        height: 100%;
         border-bottom-right-radius: 0px;
     }
 
@@ -23,5 +26,13 @@
 
     .splide__list li img {
         width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 523px) {
+    .box_slide {
+        padding: 7rem 1rem 2rem 1rem;
+        height: 100%;
     }
 }

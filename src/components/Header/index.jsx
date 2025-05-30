@@ -31,7 +31,7 @@ function Header() {
 
   return (
     <>
-      <section className="splide box_slide" aria-label="Splide Basic HTML Example">
+      <section className="splide bg-gray-800 box_slide" aria-label="Splide Basic HTML Example">
         <div className="splide__track card_slide">
           <ul className="splide__list">
             {images.map((img, index) => (

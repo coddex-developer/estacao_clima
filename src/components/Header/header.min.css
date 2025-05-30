@@ -1,0 +1,27 @@
+.box_slide {
+    padding: 6rem 2rem 2rem 2rem;
+    border-bottom-right-radius: 50px;
+    background-image: linear-gradient(-30deg, rgb(8, 64, 119), #16232e);
+}
+
+.splide__list li img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+@media screen and (min-width: 523px) {
+    .box_slide {
+        border-bottom-right-radius: 0px;
+    }
+
+    .card_slide {
+        max-height: 500px;
+        max-width: 550px;
+        margin: 0 auto;
+    }
+
+    .splide__list li img {
+        width: 500px;
+    }
+}

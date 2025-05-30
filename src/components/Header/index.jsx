@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import "./header.min.css";
 
 function Header() {
   const images = [
@@ -30,8 +31,8 @@ function Header() {
 
   return (
     <>
-      <section className="splide pt-20 h-full" aria-label="Splide Basic HTML Example">
-        <div className="splide__track h-full">
+      <section className="splide box_slide" aria-label="Splide Basic HTML Example">
+        <div className="splide__track card_slide">
           <ul className="splide__list">
             {images.map((img, index) => (
               <li key={index} className="splide__slide">

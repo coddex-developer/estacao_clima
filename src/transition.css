@@ -1,20 +1,35 @@
 .fade-enter {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  
-  .fade-enter-active {
-    opacity: 1;
-    transform: translateY(0px);
-    transition: opacity 300ms ease, transform 300ms ease;
-  }
-  
-  .fade-exit {
-    opacity: 1;
-  }
-  
-  .fade-exit-active {
-    opacity: 0;
-    transition: opacity 300ms ease;
-  }
-  
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+/*IntersectionObserver Effect*/
+
+.showElements {
+  width: 100%;
+  display: flex;
+  opacity: 0;
+  transition: 2s ease-in-out;
+  margin-left: -100px;
+}
+
+.showObserver {
+  opacity: 1;
+  margin-left: 0;
+  transition: 2s ease-in-out;
+}

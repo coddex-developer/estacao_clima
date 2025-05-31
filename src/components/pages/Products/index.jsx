@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../../Footer";
 import Navbar from "../../Navbar";
 import products from "../../../database.json";
 import ScrollTop from "../../EfectsPage/ScrollTop";
 import PageWrapper from "../../EfectsPage/PageWrapper";
+import Intersection from "../../EfectsPage/Intersection";
 
 function Products() {
   const [visibleCount, setVisibleCount] = useState(10);
@@ -19,7 +20,10 @@ function Products() {
     });
     return acc;
   }, {});
-
+ 
+  useEffect(() => {
+    Intersection();
+  }, []);
   return (
     <>
       <ScrollTop />
@@ -40,7 +44,7 @@ function Products() {
                 {products.slice(0, visibleCount).map((product, index) => (
                   <div
                     key={index}
-                    className="flex flex-col justify-between bg-white border border-gray-800 rounded-2xl shadow-lg overflow-hidden dark:bg-gray-700 dark:border-gray-900 transition-all hover:shadow-xl hover:border-gray-900"
+                    className="showElements flex flex-col justify-between bg-white border border-gray-800 rounded-2xl shadow-lg overflow-hidden dark:bg-gray-700 dark:border-gray-900 transition-all hover:shadow-xl hover:border-gray-900"
                   >
                     <img
                       className="w-full h-48 object-contain object-center bg-white p-2"
@@ -48,7 +52,7 @@ function Products() {
                       alt={product.name}
                     />
                     <div className="p-5 flex flex-col flex-grow">
-                      <h5 className="mb-3 text-xl font-semibold text-gray-800 dark:text-gray-300">
+                      <h5 className="mb-3 text-3xl text-center py-3 font-semibold text-gray-800 dark:text-gray-300">
                         {product.name}
                       </h5>
                       <ul className="mb-4 text-sm text-gray-800 dark:text-gray-300 list-disc list-inside space-y-1 flex-grow">

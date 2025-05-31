@@ -8,8 +8,14 @@ import Navbar from "../../Navbar"
 import PrimarySection from "../../PrimarySection"
 import SecondarySection from "../../SecondarySection"
 import { Outlet } from "react-router-dom"
+import Intersection from "../../EfectsPage/Intersection"
+import { useEffect } from "react"
 
 function Home() {
+    useEffect(() => {
+        Intersection();
+    }, []);
+    
     return (
         <>
             <ScrollTop />

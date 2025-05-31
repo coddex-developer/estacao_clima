@@ -3,10 +3,13 @@ function NotificationCard(props) {
 
     return (
         <>
-            <div className="notification bg-gray-800 dark:bg-gray-700 w-full">
-                <div className="notiglow"></div>
-                <div className="notiborderglow"></div>
-                <div className="notititle">{props.text}</div>
+            <div className="notification w-full">
+                <div className="showElements noticard dark:bg-gray-700">
+                    <img src={props.avatar} alt="avatar" />
+                    <p className='notitext'>
+                        {props.text}
+                    </p>
+                </div>
             </div>
         </>
     )

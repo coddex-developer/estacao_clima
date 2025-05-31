@@ -31,5 +31,5 @@
 .showObserver {
   opacity: 1;
   margin-left: 0;
-  transition: 2s ease-in-out;
+  transition: 1s ease-in-out;
 }

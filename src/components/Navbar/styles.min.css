@@ -3,3 +3,20 @@
     backdrop-filter: blur(10px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
+
+.active {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid transparent;
+    color: white;
+    transition: .3s;
+}
+.active:hover {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media(min-width: 768px) {
+    .active {
+        background-color: transparent;
+        border-bottom: 1px solid royalblue;
+    }
+}

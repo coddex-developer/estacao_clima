@@ -4,7 +4,7 @@ import Navbar from "../../Navbar";
 import products from "../../../database.json";
 import ScrollTop from "../../EfectsPage/ScrollTop";
 import PageWrapper from "../../EfectsPage/PageWrapper";
-import Intersection from "../../EfectsPage/Intersection";
+import Aos from "aos";
 
 function Products() {
   const [visibleCount, setVisibleCount] = useState(10);
@@ -20,18 +20,19 @@ function Products() {
     });
     return acc;
   }, {});
- 
-  useEffect(() => {
-    Intersection();
-  }, []);
+
+  useEffect(()=>{
+          Aos.init({duration: "2000"});
+      }, [])
+
   return (
     <>
       <ScrollTop />
       <Navbar />
       <PageWrapper>
-        
+
         <div className="p-6 bg-gray-50 dark:bg-gray-800 min-h-screen transition-colors duration-300 max-w-screen-xl mx-auto">
-          <h1 className="text-3xl font-bold mt-20 mb-6 text-center text-gray-800 dark:text-gray-300">
+          <h1 className="text-4xl font-bold mt-20 mb-6 text-center text-gray-800 dark:text-gray-300">
             Produtos
           </h1>
 
@@ -40,11 +41,11 @@ function Products() {
               <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
                 {category}
               </h2>
-              <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              <div data-aos="fade-up" className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {products.slice(0, visibleCount).map((product, index) => (
                   <div
                     key={index}
-                    className="showElements flex flex-col justify-between bg-white border border-gray-800 rounded-2xl shadow-lg overflow-hidden dark:bg-gray-700 dark:border-gray-900 transition-all hover:shadow-xl hover:border-gray-900"
+                    className="min-w-[250px] max-w-[400p] showElements flex flex-col justify-between border border-gray-800 rounded-3xl shadow-lg overflow-hidden dark:bg-gray-700 dark:border-gray-900 transition-all hover:shadow-xl hover:border-gray-900"
                   >
                     <img
                       className="w-full h-48 object-contain object-center bg-white p-2"
@@ -52,12 +53,12 @@ function Products() {
                       alt={product.name}
                     />
                     <div className="p-5 flex flex-col flex-grow">
-                      <h5 className="mb-3 text-3xl text-center py-3 font-semibold text-gray-800 dark:text-gray-300">
+                      <h5 className="mb-3 text-[18pt] text-center py-5 font-semibold text-gray-800 dark:text-gray-300">
                         {product.name}
                       </h5>
                       <ul className="mb-4 text-sm text-gray-800 dark:text-gray-300 list-disc list-inside space-y-1 flex-grow">
                         {product.info.map((detail, idx) => (
-                          <li key={idx}>{detail.item}</li>
+                          <li className="font-medium mt-3" key={idx}>{detail.item}</li>
                         ))}
                       </ul>
                       <a

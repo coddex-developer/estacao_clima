@@ -31,7 +31,7 @@ function Services() {
             <PageWrapper>
 
                 <section className="bg-gray-50 dark:bg-gray-800 py-16 px-4">
-                    <h1 className=" mt-[35px] text-3xl font-bold mt-20 mb-6 text-center text-gray-800 dark:text-gray-300">Nossos Serviços</h1>
+                    <h1 className="text-4xl mt-[35px] font-bold mb-6 text-center text-gray-800 dark:text-gray-300">Nossos Serviços</h1>
                     <div className="grid gap-8 max-w-6xl mx-auto md:grid-cols-3 mt-10">
                         {services.map((service, index) => (
                             <div

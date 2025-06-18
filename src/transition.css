@@ -19,7 +19,7 @@
 }
 
 /*IntersectionObserver Effect*/
-
+/*
 .showElements {
   width: 100%;
   display: flex;
@@ -29,7 +29,8 @@
 }
 
 .showObserver {
+  width: 100%;
   opacity: 1;
-  margin-left: 0;
+  margin: 0;
   transition: 1s ease-in-out;
-}
+}*/

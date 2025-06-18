@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./styles.min.css"
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  const { pathname } = useLocation();
   useEffect(() => {
     if (
       localStorage.getItem("color-theme") === "dark" ||
@@ -61,27 +61,27 @@ function Navbar() {
               <li>
                 <Link
                   to="/"
-                  className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500"
+                  className={`block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500 ${pathname === "/" ? "active" : ""}`}
                 >
-                  <i class="bi bi-house"></i> Home
+                  <i className="bi bi-house"></i> Home
                 </Link>
               </li>
 
               <li>
                 <Link
                   to="/products"
-                  className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500"
+                  className={`block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500 ${pathname === "/products" ? "active" : ""}`}
                 >
-                  <i class="bi bi-cart4"></i> Produtos
+                  <i className="bi bi-cart4"></i> Produtos
                 </Link>
               </li>
 
               <li>
                 <Link
                   to="/services"
-                  className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500"
+                  className={`block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500 ${pathname === "/services" ? "active" : ""}`}
                 >
-                  <i class="bi bi-snow3"></i> Serviços
+                  <i className="bi bi-snow3"></i> Serviços
                 </Link>
               </li>
 
@@ -91,7 +91,7 @@ function Navbar() {
                   target="_blank"
                   className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-300 md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:text-blue-500"
                 >
-                  <i class="bi bi-whatsapp"></i> Contato
+                  <i className="bi bi-whatsapp"></i> Contato
                 </a>
               </li>
 

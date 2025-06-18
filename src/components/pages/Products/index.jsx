@@ -21,9 +21,9 @@ function Products() {
     return acc;
   }, {});
 
-  useEffect(()=>{
-          Aos.init({duration: "2000"});
-      }, [])
+  useEffect(() => {
+    Aos.init({ duration: "1500" });
+  }, [])
 
   return (
     <>
@@ -41,9 +41,10 @@ function Products() {
               <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
                 {category}
               </h2>
-              <div data-aos="fade-up" className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {products.slice(0, visibleCount).map((product, index) => (
                   <div
+                    data-aos="fade-up"
                     key={index}
                     className="min-w-[250px] max-w-[400p] showElements flex flex-col justify-between border border-gray-800 rounded-3xl shadow-lg overflow-hidden dark:bg-gray-700 dark:border-gray-900 transition-all hover:shadow-xl hover:border-gray-900"
                   >

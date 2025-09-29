@@ -20,11 +20,11 @@ const WhatsAppIcon = (props) => (
 
 // --- CONFIGURAÇÃO CENTRAL DE INFORMAÇÕES ---
 const CONTACT_INFO = {
-  phone: '(61) 99983-9447',
-  whatsappNumber: '5561999839447',
+  phone: '(61) 99665-4539',
+  whatsappNumber: '5561996654539',
   instagramUser: 'estacaoclima2104',
-  email: 'contato@estacaoclima.com.br',
-  address: 'Quadra X, Lote Y, Setor Z - Formosa, GO',
+  email: '',
+  address: 'Formosa, GO',
   mapSrc: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3844.0237294315043!2d-47.29407772487529!3d-15.536858585068146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTXCsDMyJzEyLjciUyA0N8KwMTcnMjkuNCJX!5e0!3m2!1spt-BR!2sbr!4v1743957220589!5m2!1spt-BR!2sbr"
 };
 
@@ -104,9 +104,7 @@ const Header = ({ onCartClick, cartItemCount, onSearchClick, onToggleTheme, them
                         <a href="#faq" className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors"><HelpCircle size={18}/><span>FAQ</span></a>
                     </nav>
                     <div className="flex items-center space-x-2">
-                        <button onClick={onToggleTheme} className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-                            {theme === 'light' ? <Moon className="text-gray-700 dark:text-gray-300" /> : <Sun className="text-gray-700 dark:text-gray-300" />}
-                        </button>
+                        
                         <button onClick={onSearchClick} className="hidden md:block p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
                             <Search className="text-gray-700 dark:text-gray-300" />
                         </button>
@@ -568,11 +566,12 @@ export default function App() {
     const [fullScreenImage, setFullScreenImage] = useState(null);
     const [isBtuModalOpen, setIsBtuModalOpen] = useState(false);
     const [btuResult, setBtuResult] = useState(0);
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState('dark');
 
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme');
         const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
         if (savedTheme) {
             setTheme(savedTheme);
         } else if (userPrefersDark) {

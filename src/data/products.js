@@ -18,11 +18,11 @@ export const products = [
     image: "/images_products/cobre.webp",
     name: "Tubo de Cobre",
     info: [
-      { item: "Tubo 1/4 - R$ 13,50/m" },
-      { item: "Tubo 3/8 - R$ 20,20/m" },
-      { item: "Tubo 1/2 - R$ 27,00/m" },
+      { item: "Tubo 1/4 - R$ 15,00/m" },
+      { item: "Tubo 3/8 - R$ 22,00/m" },
+      { item: "Tubo 1/2 - R$ 30,00/m" },
       { item: "Tubo 5/8 - R$ 33,20/m" },
-      { item: "Tubo 3/4 - R$ 40,00/m" },
+      { item: "Tubo 3/4 - R$ 44,00/m" },
     ],
   },
   {
@@ -52,9 +52,9 @@ export const products = [
     image: "/images_products/suporte-cond-eos.webp",
     name: "Suporte para Condensadora",
     info: [
-      { item: "Suporte de 400 - R$ 31,00" },
-      { item: "Suporte de 450 - R$ 38,00" },
-      { item: "Suporte de 500 - R$ 50,00" },
+      { item: "Suporte de 400 - R$ 35,00" },
+      { item: "Suporte de 450 - R$ 46,00" },
+      { item: "Suporte de 500 - R$ 55,00" },
     ],
   },
   {

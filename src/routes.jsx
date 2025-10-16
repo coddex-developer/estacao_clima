@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, createHashRouter } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 
 const router = createBrowserRouter([

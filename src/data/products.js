@@ -12,6 +12,18 @@ export const products = [
       { item: "Tamanho 3/4 - R$ 6,00" },
     ],
   },
+
+     {
+    id: 14750,
+    type: ["Válvulas de Serviço"],
+    image: "/images_products/servico.webp",
+    name: "Válvula de serviço",
+    info: [
+      { item: "Válvula de 1/4 - R$ 45,00" },
+      { item: "Válvula de 3/8 - R$ 52,00" }
+    ],
+  },
+
   {
     id: 2,
     type: ["Isolamento e Tubulação"],
@@ -88,6 +100,13 @@ export const products = [
   {
     id: 7,
     type: ["Gás Refrigerante"],
+    image: "/images_products/gasR32.webp",
+    name: "Gás Refrigerante R32 Premium",
+    info: [{ item: "Cilindro de 3Kg - R$ 399,00" }],
+  },
+  {
+    id: 7,
+    type: ["Gás Refrigerante"],
     image: "/images_products/gasR22.avif",
     name: "Gás Refrigerante R22 EOS",
     info: [{ item: "Cilindro de 800g - R$ 120,00" }],
@@ -99,6 +118,15 @@ export const products = [
     name: "Gás MAP EOS para Maçaricos",
     info: [{ item: "Cilindro de 400g - R$ 40,00" }],
   },
+
+  {
+    id: 12343248,
+    type: ["Solda e Trabalho a Quente"],
+    image: "/images_products/foscopo.jpg",
+    name: "Vareta Foscopo Harris",
+    info: [{ item: "unidade - R$ 6,00" }],
+  },
+
   {
     id: 12,
     type: ["Elétrica"],
@@ -113,6 +141,27 @@ export const products = [
     name: "Cabo Flexível PP",
     info: [{ item: "4 Vias Bitola 1.5MM - (R$ 10,00 o Metro)" }],
   },
+
+  {
+    id: 124323,
+    type: ["Elétrica"],
+    image: "/images_products/capacitor25uf.webp",
+    name: "Capacitor EOS 25+1.5uf 380VAC 50/60Hz",
+    info: [
+      { item: "Capacitor - R$ 29,00" }
+    ],
+  },
+
+  {
+    id: 124323,
+    type: ["Elétrica"],
+    image: "/images_products/capacitor35uf.webp",
+    name: "Capacitor EOS 35+2.5UF 440VAC 50/60Hz",
+    info: [
+      { item: "Capacitor - R$ 40,00" }
+    ],
+  },
+
   {
     id: 51,
     type: ["Caixas e Acessórios"],

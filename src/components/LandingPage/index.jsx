@@ -10,7 +10,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { products } from '../../data/products';
 import { services } from '../../data/services';
 import { carousselImagesData } from '../../data/carouselImagesData';
-
 // --- Ícone do WhatsApp como SVG (Versão Corrigida) ---
 const WhatsAppIcon = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -186,13 +185,15 @@ const ImageCarousel = ({ images, onImageClick }) => {
     useEffect(() => { const interval = setInterval(handleNext, 5000); return () => clearInterval(interval); }, [handleNext]);
     return (
         <AnimateOnScroll>
-            <div className="relative w-full overflow-hidden rounded-lg shadow-xl my-8" onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp} onTouchStart={handleMouseDown} onTouchMove={handleMouseMove} onTouchEnd={handleMouseUp}>
+            <div className='w-full items-center justify-center flex flex-col lg:bg-gray-800 rounded-md'>
+                <div className="items-center justify-center flex flex-col relative w-full overflow-hidden rounded-lg my-8  lg:mx-auto" onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp} onTouchStart={handleMouseDown} onTouchMove={handleMouseMove} onTouchEnd={handleMouseUp}>
                 <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(calc(-${currentIndex * 100}% + ${translateX}px))` }}>
-                    {images.map((img) => (<div key={img.id} className="w-full flex-shrink-0" onClick={() => !isDragging && translateX === 0 && onImageClick(img.src)}><img src={img.src} alt={img.alt} className="w-full h-164 md:h-96 object-cover cursor-pointer" /><div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-6"><h2 className="text-white text-2xl md:text-4xl font-bold">{img.alt}</h2></div></div>))}
+                    {images.map((img) => (<div key={img.id} className="w-full flex-shrink-0" onClick={() => !isDragging && translateX === 0 && onImageClick(img.src)}><img src={img.src} alt={img.alt} className="w-full h-164 md:h-96 object-cover lg:object-contain cursor-pointer" /><div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-6"><h2 className="text-white text-2xl md:text-4xl font-bold">{img.alt}</h2></div></div>))}
                 </div>
                 <button onClick={handlePrev} className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/50 hover:bg-white p-2 rounded-full shadow-md transition-all z-10"><ChevronLeft /></button>
                 <button onClick={handleNext} className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/50 hover:bg-white p-2 rounded-full shadow-md transition-all z-10"><ChevronRight /></button>
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">{images.map((_, index) => (<div key={index} className={`h-2 w-2 rounded-full ${currentIndex === index ? 'bg-white' : 'bg-white/50'}`} />))}</div>
+            </div>
             </div>
         </AnimateOnScroll>
     );
@@ -204,9 +205,9 @@ const ProductCard = React.forwardRef(({ product, onAddToCart }, ref) => {
     const selectedVariant = product.variants[selectedVariantIndex];
     const handleAddToCartClick = () => { onAddToCart(product, selectedVariant, quantity); setQuantity(1); };
     return (
-        <div ref={ref} className="bg-blue-50 dark:bg-gray-800 rounded-xl shadow-md overflow-hidden flex flex-col transition-transform hover:scale-105 duration-300 relative scroll-mt-20">
+        <div ref={ref} className="cardProducts bg-gray-200 dark:bg-gray-800 shadow-md overflow-hidden flex flex-col transition-transform relative scroll-mt-20">
             {selectedVariant.isOnSale && (<div className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center space-x-1 z-10 animate-pulse"><Tag size={14} /><span>{selectedVariant.discountPercentage}% OFF</span></div>)}
-            <img src={product.image} alt={product.name} className="w-full rounded-t-xl bg-white h-52 object-contain" />
+            <img src={product.image} alt={product.name} className="w-full bg-white h-52 object-contain transition-transform duration-300 hover:scale-105" />
             <div className="p-4 flex flex-col flex-grow">
                 <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2 flex-grow">{product.name}</h3>
                 {product.variants.length > 1 && (
@@ -216,7 +217,7 @@ const ProductCard = React.forwardRef(({ product, onAddToCart }, ref) => {
                             id={`variant-${product.id}`} 
                             value={selectedVariantIndex} 
                             onChange={(e) => setSelectedVariantIndex(e.target.value)} 
-                            className="w-full appearance-none pl-3 pr-10 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                            className="w-full appearance-none pl-3 pr-10 py-2 border border-gray-300 dark:border-gray-600 bg-purple-50 dark:bg-gray-700 text-gray-900 dark:text-gray-200 rounded-lg shadow-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition"
                         >
                             {product.variants.map((variant, index) => (<option key={variant.id} value={index}>{variant.name}</option>))}
                         </select>
@@ -231,8 +232,8 @@ const ProductCard = React.forwardRef(({ product, onAddToCart }, ref) => {
                         {selectedVariant.byMeter && !selectedVariant.isOnSale && <span className="text-sm font-normal text-gray-500 dark:text-gray-400"> / metro</span>}
                         {selectedVariant.byMeter && selectedVariant.isOnSale && <span className="text-sm font-normal text-gray-500 dark:text-gray-400"> / metro (promo)</span>}
                     </div>
-                    {selectedVariant.byMeter && (<div className="flex items-center space-x-2 mb-4"><label htmlFor={`quantity-${product.id}`} className="text-sm font-medium text-gray-700 dark:text-gray-400">Metragem:</label><input type="number" id={`quantity-${product.id}`} value={quantity} onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))} className="w-20 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" /></div>)}
-                    <button onClick={handleAddToCartClick} className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition-all flex items-center justify-center space-x-2"><ShoppingCart size={18} /><span>Adicionar ao Carrinho</span></button>
+                    {selectedVariant.byMeter && (<div className="flex items-center space-x-2 mb-4"><label htmlFor={`quantity-${product.id}`} className="text-sm font-medium text-gray-800 dark:text-gray-400">Metragem:</label><input type="number" id={`quantity-${product.id}`} value={quantity} onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))} className="w-20 border-gray-300 p-2 text-lg font-bold dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" /></div>)}
+                    <button onClick={handleAddToCartClick} className="w-full bg-purple-900 text-white font-bold py-2 px-4 rounded-lg hover:bg-purple-700 transition-all flex items-center justify-center space-x-2"><ShoppingCart size={18} /><span>Adicionar ao Carrinho</span></button>
                 </div>
             </div>
         </div>
@@ -251,7 +252,7 @@ const ProductList = ({ products, onAddToCart, categoryRefs, productRefs }) => {
                     <h3 className="text-xl font-bold text-gray-700 dark:text-gray-300 mb-4">Navegue por Categorias</h3>
                     <div className="flex flex-wrap gap-2">
                         {products.map(({ category }) => (
-                            <button key={category} onClick={() => handleFilterClick(category)} className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white dark:hover:text-white transition-colors">
+                            <button key={category} onClick={() => handleFilterClick(category)} className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full hover:bg-purple-900 dark:hover:bg-purple-500 hover:text-white dark:hover:text-white transition-colors">
                                 {category}
                             </button>
                         ))}
@@ -333,10 +334,10 @@ const ServicesCarousel = ({ services }) => {
                         {services.map(service => (
                             <div key={service.id} className="flex-shrink-0 w-72 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden group">
                                 <div className="relative">
-                                    <img src={service.image} alt={service.title} className="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-110" />
+                                    <img src={service.image} alt={service.title} className="w-96 h-96 object-cover lg:object-contain transition-transform duration-300 group-hover:scale-110" />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                                     <div className="absolute bottom-4 left-4 flex items-center space-x-2">
-                                        <Wrench className="text-white" size={20} />
+                                        <Wrench className="text-white bg-black/50 shadow-md shadow-black p-1 size-8 rounded-full" size={20} />
                                         <h3 className="text-white text-lg font-semibold">{service.title}</h3>
                                     </div>
                                 </div>
@@ -490,7 +491,7 @@ const FloatingActionButton = () => {
                     <a href={INSTAGRAM_LINK} target="_blank" rel="noopener noreferrer" className="bg-gradient-to-br from-purple-500 to-pink-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transform transition-all hover:scale-110"><Instagram size={28}/></a>
                     <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transform transition-all hover:scale-110"><WhatsAppIcon className="w-8 h-8"/></a>
                 </>)}
-                <button onClick={() => setIsOpen(!isOpen)} className={`bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-xl transform transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}><Plus size={32} /></button>
+                <button onClick={() => setIsOpen(!isOpen)} className={`bg-gray-950/80 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl transform transition-transform duration-300 ${isOpen ? 'rotate-45 bg-gray-950/60' : ''}`}><Plus size={35} /></button>
             </div>
         </div>
     );

@@ -29,7 +29,7 @@ const CONTACT_INFO = {
 
 const PROMOTIONS_CONFIG = {
   2: { active: false, discount: 15 },
-  50: { active: false, discount: 10 },
+  50: { active: true, discount: 6 },
   13: { active: false, discount: 20 },
 };
 

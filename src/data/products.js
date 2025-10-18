@@ -64,9 +64,9 @@ export const products = [
     image: "/images_products/suporte-cond-eos.webp",
     name: "Suporte para Condensadora",
     info: [
-      { item: "Suporte de 400 - R$ 35,00" },
-      { item: "Suporte de 450 - R$ 46,00" },
-      { item: "Suporte de 500 - R$ 55,00" },
+      { item: "Suporte de 400 - R$ 32,00" },
+      { item: "Suporte de 450 - R$ 39,00" },
+      { item: "Suporte de 500 - R$ 51,00" },
     ],
   },
   {

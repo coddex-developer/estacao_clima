@@ -95,7 +95,7 @@ const Header = ({ onCartClick, cartItemCount, onSearchClick, onToggleTheme, them
         <>
             <header className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-sm sticky top-0 z-40 transition-colors">
                 <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-                    <img src="https://i.imgur.com/An2oFPn.png" className='w-44' alt='logo' />
+                    <img src="/logo.png" className='w-40 bg-purple-950 dark:bg-transparent rounded-full p-1' alt='logo' />
                     <nav className="hidden md:flex items-center space-x-6">
                         <a href="#produtos" className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors"><Package size={18}/><span>Produtos</span></a>
                         <a href="#servicos" className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors"><Wrench size={18}/><span>Serviços</span></a>

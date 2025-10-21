@@ -13,7 +13,7 @@ export const products = [
     ],
   },
 
-     {
+  {
     id: 14750,
     type: ["Válvulas de Serviço"],
     image: "/images_products/servico.webp",
@@ -65,16 +65,17 @@ export const products = [
     name: "Suporte para Condensadora",
     info: [
       { item: "Suporte de 400 - R$ 35,00" },
-      { item: "Suporte de 450 - R$ 46,00" },
-      { item: "Suporte de 500 - R$ 55,00" },
+      { item: "Suporte de 500 - R$ 55,00" }
     ],
   },
   {
-    id: 501,
+    id: 5021233,
     type: ["Fixação e Suporte"],
-    image: "/images_products/buchas-8-10.jpg",
-    name: "Bucha De Fixação Para Tijolo",
-    info: [{ item: "8mm - R$ 0,20" }, { item: "10mm - R$ 0,35" }],
+    image: "/images_products/suporte-cond-eos.webp",
+    name: "Suporte para Condensadora",
+    info: [
+      { item: "Suporte de 450 - R$ 39,00" }
+    ],
   },
   {
     id: 502,

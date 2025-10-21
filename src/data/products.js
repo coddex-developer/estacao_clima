@@ -49,7 +49,7 @@ export const products = [
     type: ["Fitas e Vedação"],
     image: "/images_products/fita-aluminio.webp",
     name: "Fita PP Aluminizada",
-    info: [{ item: "Rolo com 45mm X 45M - R$ 6,50" }],
+    info: [{ item: "Rolo com 45mm X 45m - R$ 6,50" }],
   },
   {
     id: 42,
@@ -64,15 +64,15 @@ export const products = [
     image: "/images_products/suporte-cond-eos.webp",
     name: "Suporte para Condensadora",
     info: [
-      { item: "Suporte de 400 - R$ 35,00" },
-      { item: "Suporte de 500 - R$ 55,00" }
+      { item: "Suporte de 400mm - R$ 35,00" },
+      { item: "Suporte de 500mm - R$ 55,00" }
     ],
   },
   {
     id: 5021233,
     type: ["Fixação e Suporte"],
     image: "/images_products/suporte-cond-eos.webp",
-    name: "Suporte para Condensadora",
+    name: "Suporte para Condensadora 450mm",
     info: [
       { item: "Suporte de 450 - R$ 39,00" }
     ],

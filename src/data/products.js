@@ -125,7 +125,7 @@ export const products = [
     type: ["Solda e Trabalho a Quente"],
     image: "/images_products/foscopo.jpg",
     name: "Vareta Foscopo Harris",
-    info: [{ item: "unidade - R$ 6,00" }],
+    info: [{ item: "unidade - R$ 9,00" }],
   },
 
   {

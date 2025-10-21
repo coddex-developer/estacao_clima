@@ -28,13 +28,7 @@ const CONTACT_INFO = {
 };
 
 const PROMOTIONS_CONFIG = {
-<<<<<<< HEAD
   50: { active: true, discount: 6 }
-=======
-  2: { active: false, discount: 15 },
-  50: { active: true, discount: 6 },
-  13: { active: false, discount: 20 },
->>>>>>> 3f102c46ceb114a7ef29bab77fc978962ef4e1f2
 };
 
 // --- FUNÇÃO PARA PROCESSAR OS DADOS DOS PRODUTOS ---

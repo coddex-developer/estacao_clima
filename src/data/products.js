@@ -164,17 +164,27 @@ export const products = [
   },
 
   {
-    id: 51,
+    id: 5134555,
     type: ["Caixas e Acessórios"],
     image: "/images_products/caixinha-disjuntor.webp",
     name: "Caixa Sobrepor Para Disjuntor",
     info: [{ item: "Caixa plástica 1 ou 2 polos - R$ 10,00" }],
   },
   {
-    id: 52,
+    id: 5223,
     type: ["Caixas e Acessórios"],
     image: "/images_products/cxDreno.webp",
     name: "Caixa de Passagem Ar Condicionado",
     info: [{ item: "Dimensão 29,0 x 16,4 x 5,0 - R$ 22,00" }],
   },
+
+  {
+    id: 2346,
+    type: ["Graxas"],
+    image: "/images_products/graxa-branca-80g.jpg",
+    name: "Sachê de graxa branca 80g",
+    info: [{ item: "Sachê de gracha branca para lubrificação - R$ 6,00" }],
+  },
+
 ];
+//

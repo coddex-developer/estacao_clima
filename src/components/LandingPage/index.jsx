@@ -448,7 +448,7 @@ const Faq = ({ data }) => (
 );
 
 const LocationMap = () => (
-    <section id="localizacao" className="py-16 bg-white dark:bg-gray-900">
+    <section id="localizacao" className="py-16 mb-16 bg-white dark:bg-gray-900">
         <AnimateOnScroll>
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">

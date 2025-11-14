@@ -32,6 +32,9 @@ const PROMOTIONS_CONFIG = {
     50: { active: true, discount: 6 }
 };
 
+
+//cart
+
 // --- FUNÇÃO PARA PROCESSAR OS DADOS DOS PRODUTOS ---
 const processRawProductData = (rawData, promotions) => {
     const groupedByCategory = rawData.reduce((acc, product) => {
@@ -586,13 +589,31 @@ const SearchModal = ({ isOpen, onClose, products, onSelect }) => {
 
 
 export default function App() {
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(() => {
+        try {
+            const savedCart = localStorage.getItem('cart');
+            if (savedCart) {
+                return JSON.parse(savedCart)
+            }
+        } catch (error) {
+            console.error('Erro ao tentar salvar no LocalStorage - ', error)
+        }
+        return []
+    });
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
     const [fullScreenImage, setFullScreenImage] = useState(null);
     const [isBtuModalOpen, setIsBtuModalOpen] = useState(false);
     const [btuResult, setBtuResult] = useState(0);
     const [theme, setTheme] = useState('dark');
+
+    useEffect(() => {
+        try {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        } catch (error) {
+            console.error("Erro ao salvar o carrinho no localStorage:", error);
+        }
+    }, [cart]);
 
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme');

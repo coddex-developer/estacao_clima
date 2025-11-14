@@ -77,6 +77,7 @@ export const products = [
       { item: "Suporte de 450 - R$ 39,00" }
     ],
   },
+
   {
     id: 502,
     type: ["Fixação e Suporte"],
@@ -84,6 +85,18 @@ export const products = [
     name: "Parafuso Para Bucha Sextavada",
     info: [{ item: "10mm 1/4x55 - R$ 0,85" }],
   },
+
+  {
+    id: 502132234713,
+    type: ["Fixação e Suporte"],
+    image: "/images_products/buchas-8-10.jpg",
+    name: "Bucha Tijolo Bloco Parede Oca",
+    info: [
+      { item: "Bucha 8mm - R$ 0,20" },
+      { item: "Bucha 10mm - R$ 0,35"}
+    ],
+  },
+
   {
     id: 503,
     type: ["Fixação e Suporte"],
@@ -99,7 +112,7 @@ export const products = [
     info: [{ item: "Cilindro de 750g com Válvula e Manopla - R$ 120,00" }],
   },
   {
-    id: 7,
+    id: 721345324,
     type: ["Gás Refrigerante"],
     image: "/images_products/gasR32.webp",
     name: "Gás Refrigerante R32 Premium",
@@ -144,7 +157,7 @@ export const products = [
   },
 
   {
-    id: 124323,
+    id: 1243125423,
     type: ["Elétrica"],
     image: "/images_products/capacitor25uf.webp",
     name: "Capacitor EOS 25+1.5uf 380VAC 50/60Hz",

@@ -266,7 +266,7 @@ const ProductList = ({ products, onAddToCart, categoryRefs, productRefs }) => {
             {products.map(({ category, items }) => (
                 <div key={category} ref={el => categoryRefs.current[category] = el} className="px-8 sm:px-6 justify-center items-center mb-12 mt-24 scroll-mt-20">
                     <AnimateOnScroll>
-                        <h2 className="flex gap-3 text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-200 mb-10 dark:border-blue-500 justify-center md:pl-4 bg-blue-300/40 p-2 rounded-full"><AirVentIcon className='text-blue-500 flex items-center justify-center' size={33} /> {category}</h2>
+                        <h2 className="flex gap-3 text-xl lg:text-4xl font-bold text-gray-800 dark:text-gray-200 mb-10 dark:border-blue-500 justify-center md:pl-4 bg-blue-300/40 p-2 rounded-full"><AirVentIcon className='text-blue-500 flex items-center justify-center' size={33} /> {category}</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {items.map((product) => (
                                 <ProductCard key={product.id} ref={el => productRefs.current[product.id] = el} product={product} onAddToCart={onAddToCart} />

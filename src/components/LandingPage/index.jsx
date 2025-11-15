@@ -238,7 +238,7 @@ const Header = ({
             >
               <ShoppingCart className="text-gray-700 dark:text-gray-300" />
               {cartItemCount > 0 && (
-                <span className="absolute top-0 right-0 block h-5 w-5 rounded-full bg-red-500 text-white text-xs flex items-center justify-center">
+                <span className="absolute top-0 right-0 h-5 w-5 rounded-full bg-red-500 text-white text-xs flex items-center justify-center">
                   {cartItemCount}
                 </span>
               )}
@@ -470,7 +470,7 @@ const ProductCard = React.forwardRef(({ product, onAddToCart }, ref) => {
   return (
     <div
       ref={ref}
-      className="w-full lg:items-center gap-5 lg:hover:scale-105 lg:rounded-xl mx-auto cardProducts bg-blue-50 dark:bg-gray-800 rounded-2xl shadow-lg shadow-blue-900/10 dark:shadow-gray-900/10 hover:shadow-blue-950/40 dark:hover:shadow-gray-950/40 overflow-hidden flex flex-col lg:grid lg:grid-cols-2 lg:gap-3 lg:min-w-[400px] transition-transform relative scroll-mt-20"
+      className="w-full lg:items-center gap-5 lg:hover:scale-105 bg-white/10 lg:rounded-xl mx-auto cardProducts dark:bg-gray-800 rounded-2xl shadow-lg shadow-blue-900/10 dark:shadow-gray-900/10 hover:shadow-blue-950/40 dark:hover:shadow-gray-950/40 overflow-hidden flex flex-col lg:grid lg:grid-cols-2 lg:gap-3 lg:min-w-[400px] transition-transform relative scroll-mt-20"
     >
       {selectedVariant.isOnSale && (
         <div className="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center space-x-1 z-10 animate-pulse duration-500 ease-in-out">
@@ -1665,7 +1665,7 @@ export default function App() {
   );
 
   return (
-    <div className="bg-blue-100 dark:bg-gray-900 text-gray-900 transition-colors">
+    <div className="bg-blue-50 dark:bg-gray-900 text-gray-900 transition-colors">
       <style>{`
                 html { scroll-behavior: smooth; }
             `}</style>

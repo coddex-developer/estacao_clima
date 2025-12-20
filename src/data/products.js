@@ -32,7 +32,7 @@ export const products = [
     info: [
       { item: "Tubo 1/4 - R$ 15,00/m" },
       { item: "Tubo 3/8 - R$ 22,00/m" },
-      { item: "Tubo 1/2 - R$ 30,00/m" },
+      { item: "Tubo 1/2 - R$ 31,20/m" },
       { item: "Tubo 5/8 - R$ 33,20/m" },
       { item: "Tubo 3/4 - R$ 44,00/m" },
     ],

@@ -1,0 +1,25 @@
+[
+  {
+    "id": "1763676139818",
+    "name": "Esponjoso",
+    "description": "Esponjoso de 1\\4",
+    "category": "esponjoso",
+    "pricing": {
+      "basePrice": 10,
+      "isPromotional": false,
+      "finalPrice": 10,
+      "discountPercentage": 5
+    },
+    "inventory": {
+      "stockQuantity": 10,
+      "isInStock": true
+    },
+    "media": {
+      "images": [
+        "/imagens.png"
+      ],
+      "thumbnailUrl": "/imagens.png"
+    },
+    "variants": []
+  }
+]

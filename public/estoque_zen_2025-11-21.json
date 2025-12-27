@@ -1,0 +1,51 @@
+[
+  {
+    "id": "d72971e9-5654-45e0-994c-ca4661eae79c",
+    "name": "Gabriel Rodrigues Lima",
+    "description": "sdhfge wrug iv evchepuioghc vweçoieu veuohvpçeuvoer veuv",
+    "category": "Tecnologia",
+    "pricing": {
+      "basePrice": 10,
+      "discountPercentage": 10,
+      "isPromotional": true,
+      "finalPrice": 9
+    },
+    "inventory": {
+      "stockQuantity": 10,
+      "isInStock": true
+    },
+    "media": {
+      "images": [
+        "https://imgs.search.brave.com/pychsxiWBideCPBSXHulsXgwS_O5GjuLFpfbRjUqYwY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA4LzAyLzg4LzU2/LzM2MF9GXzgwMjg4/NTY2OF9kT2dXbVVV/Mmc1STFud29UZDBM/elZ0bGpvWnFRSXlr/Qy5qcGc",
+        "https://imgs.search.brave.com/pychsxiWBideCPBSXHulsXgwS_O5GjuLFpfbRjUqYwY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA4LzAyLzg4LzU2/LzM2MF9GXzgwMjg4/NTY2OF9kT2dXbVVV/Mmc1STFud29UZDBM/elZ0bGpvWnFRSXlr/Qy5qcGc",
+        "https://imgs.search.brave.com/CzSO_Egj9oSi7rmoQXo6Wfec37L70DUdDk_Qz74xIVc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4t/ZnJvbnQuZnJlZXBp/ay5jb20vaG9tZS9h/bm9uLXJ2bXAvZmVh/dHVyZXMvaW1hZ2Vz/L2FpYXNzaXN0YW50/LW1haW4ud2VicA",
+        "https://imgs.search.brave.com/CzSO_Egj9oSi7rmoQXo6Wfec37L70DUdDk_Qz74xIVc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4t/ZnJvbnQuZnJlZXBp/ay5jb20vaG9tZS9h/bm9uLXJ2bXAvZmVh/dHVyZXMvaW1hZ2Vz/L2FpYXNzaXN0YW50/LW1haW4ud2VicA"
+      ],
+      "thumbnailUrl": "https://imgs.search.brave.com/pychsxiWBideCPBSXHulsXgwS_O5GjuLFpfbRjUqYwY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA4LzAyLzg4LzU2/LzM2MF9GXzgwMjg4/NTY2OF9kT2dXbVVV/Mmc1STFud29UZDBM/elZ0bGpvWnFRSXlr/Qy5qcGc"
+    }
+  },
+  {
+    "id": "1763682753976",
+    "name": "Novo Produto Genérico",
+    "description": "Descrição de um produto moderno.",
+    "category": "Tecnologia",
+    "pricing": {
+      "basePrice": 100,
+      "discountPercentage": 0,
+      "isPromotional": false,
+      "finalPrice": 100
+    },
+    "inventory": {
+      "stockQuantity": 10,
+      "isInStock": true
+    },
+    "media": {
+      "images": [
+        "https://placehold.co/100x100/f3f4f6/1f2937?text=Imagem+1",
+        "https://placehold.co/100x100/e5e7eb/1f2937?text=Imagem+2",
+        "https://imgs.search.brave.com/ti0cgZQ1YCgcKWAPBiZBaCBW5tETfhxoK2Cfm-DB5Qc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4t/ZnJvbnQuZnJlZXBp/ay5jb20vaG9tZS9h/bm9uLXJ2bXAvY3Jl/YXRpdmUtc3VpdGUv/YWR2ZXJ0aXNpbmcv/cGhvdG8tdmlkZW8u/d2VicA"
+      ],
+      "thumbnailUrl": "https://placehold.co/100x100/f3f4f6/1f2937?text=Thumbnail"
+    }
+  }
+]

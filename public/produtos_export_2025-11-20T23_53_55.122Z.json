@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1763682753976",
+    "name": "Novo Produto Genérico",
+    "description": "Descrição de um produto moderno.",
+    "category": "Tecnologia",
+    "pricing": {
+      "basePrice": 100,
+      "discountPercentage": 0,
+      "isPromotional": false,
+      "finalPrice": 100
+    },
+    "inventory": {
+      "stockQuantity": 10,
+      "isInStock": true
+    },
+    "media": {
+      "images": [
+        "https://placehold.co/100x100/f3f4f6/1f2937?text=Imagem+1",
+        "https://placehold.co/100x100/e5e7eb/1f2937?text=Imagem+2",
+        "https://imgs.search.brave.com/ti0cgZQ1YCgcKWAPBiZBaCBW5tETfhxoK2Cfm-DB5Qc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4t/ZnJvbnQuZnJlZXBp/ay5jb20vaG9tZS9h/bm9uLXJ2bXAvY3Jl/YXRpdmUtc3VpdGUv/YWR2ZXJ0aXNpbmcv/cGhvdG8tdmlkZW8u/d2VicA"
+      ],
+      "thumbnailUrl": "https://placehold.co/100x100/f3f4f6/1f2937?text=Thumbnail"
+    }
+  }
+]

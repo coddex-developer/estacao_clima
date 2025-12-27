@@ -457,7 +457,7 @@ const ImageCarousel = ({ images, onImageClick }) => {
 };
 //#####################
 
-// CARDE DE PRODUTOS
+// CARD DE PRODUTOS
 const ProductCard = React.forwardRef(({ product, onAddToCart }, ref) => {
   const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
@@ -1254,7 +1254,7 @@ const Cart = ({ isOpen, onClose, cart, updateCart, clearCart }) => {
               {cart.map((item) => (
                 <div
                   key={item.id}
-                  className="flex bg-blue-50 items-start space-x-4 p-2 rounded-lg border dark:border-gray-700"
+                  className="flex bg-blue-50 dark:bg-gray-600 items-start space-x-4 p-2 rounded-lg border dark:border-gray-700"
                 >
                   <img
                     src={item.image}

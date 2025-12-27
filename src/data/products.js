@@ -30,9 +30,15 @@ export const products = [
     image: "/images_products/cobre.webp",
     name: "Tubo de Cobre",
     info: [
+<<<<<<< HEAD
       { item: "Tubo 1/4 - R$ 17,00/m" },
       { item: "Tubo 3/8 - R$ 25,00/m" },
       { item: "Tubo 1/2 - R$ 30,00/m" },
+=======
+      { item: "Tubo 1/4 - R$ 15,00/m" },
+      { item: "Tubo 3/8 - R$ 22,00/m" },
+      { item: "Tubo 1/2 - R$ 31,20/m" },
+>>>>>>> d45e75bb0bfa808c15980572b532e40438ae724b
       { item: "Tubo 5/8 - R$ 33,20/m" },
       { item: "Tubo 3/4 - R$ 44,00/m" },
     ],

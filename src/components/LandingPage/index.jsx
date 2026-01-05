@@ -1871,7 +1871,7 @@ export default function App() {
   );
 
   return (
-    <div className="bg-blue-50 dark:bg-gray-900 text-gray-900 transition-colors">
+    <div className="bg-gray-50 dark:bg-gray-900 text-gray-900 transition-colors">
       <style>{`
                 html { scroll-behavior: smooth; }
             `}</style>

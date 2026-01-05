@@ -27,7 +27,7 @@ export const products = [
   {
     id: 2,
     type: ["Isolamento e Tubulação"],
-    image: "/images_products/tubokg.png",
+    image: "/images_products/cobre.webp",
     name: "Tubo de cobre vendido por quilo",
     info: [
       { item: "Tubo de cobre Kg - R$ 123,00/Kg" },

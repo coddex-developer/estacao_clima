@@ -674,23 +674,24 @@ const CategoryCard = React.forwardRef(({ category, items, onAddToCart, productRe
         </div>
         <button
           onClick={() => setShowAll((s) => !s)}
-          className="text-sm font-semibold text-sky-600 dark:text-sky-400 hover:underline"
+          className="text-sm font-semibold hidden text-sky-600 dark:text-sky-400 hover:underline"
         >
           {showAll ? "Mostrar menos" : `Ver todos (${items.length})`}
         </button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14">
         {visibleItems.map((product) => {
           const previewVariant = product.variants[0];
           return (
+            //CARD NOVO
             <div
               key={product.id}
               ref={(el) => productRefs && (productRefs.current[product.id] = el)}
               data-product-preview
-              className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-xl p-3 shadow-sm hover:shadow-md transition flex flex-col h-full"
+              className="bg-gradient-to-b from-gray-100 to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-xl p-3 shadow-sm hover:shadow-md transition flex flex-col h-full"
             >
-              <div className="w-full h-40 mb-3 overflow-hidden rounded-md bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+              <div className="w-full bg-white h-40 mb-5 overflow-hidden rounded-md bg-whyte dark:bg-gray-800 flex items-center justify-center">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -703,19 +704,19 @@ const CategoryCard = React.forwardRef(({ category, items, onAddToCart, productRe
                 </h4>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">{previewVariant.name}</p>
               </div>
-              <div className="mt-3 flex items-center justify-between">
+              <div className="mt-5 flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-400 dark:text-gray-500 line-through">
+                  <p className="text-sm hidden text-gray-400 dark:text-gray-500 line-through">
                     R$ {previewVariant.originalPrice.toFixed(2).replace(".", ",")}
                   </p>
-                  <p className="text-lg font-extrabold text-sky-600 dark:text-sky-400">R$ {previewVariant.price.toFixed(2).replace(".", ",")}</p>
+                  <p className="text-2xl font-extrabold text-sky-600 dark:text-sky-400">R$ {previewVariant.price.toFixed(2).replace(".", ",")}</p>
                 </div>
                 <button
                   onClick={(e) => {
                     const imgEl = e.currentTarget.closest('[data-product-preview]')?.querySelector('img');
                     onAddToCart(product, previewVariant, 1, imgEl);
                   }}
-                  className="bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-full shadow-md text-sm transform active:scale-95 transition-all"
+                  className="bg-sky-600 hover:bg-sky-700 text-white px-8 py-2 rounded-full shadow-md text-sm transform active:scale-95 transition-all"
                 >
                   <ShoppingCart size={18} />
                 </button>

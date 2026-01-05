@@ -27,14 +27,10 @@ export const products = [
   {
     id: 2,
     type: ["Isolamento e Tubulação"],
-    image: "/images_products/cobre.webp",
-    name: "Tubo de Cobre",
+    image: "/images_products/tubokg.png",
+    name: "Tubo de cobre vendido por quilo",
     info: [
-      { item: "Tubo 1/4 - R$ 17,00/m" },
-      { item: "Tubo 3/8 - R$ 25,00/m" },
-      { item: "Tubo 1/2 - R$ 30,00/m" },
-      { item: "Tubo 5/8 - R$ 33,20/m" },
-      { item: "Tubo 3/4 - R$ 44,00/m" },
+      { item: "Tubo de cobre Kg - R$ 123,00/Kg" },
     ],
   },
   {

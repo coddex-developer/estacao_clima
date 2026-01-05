@@ -177,14 +177,76 @@ const AnimateOnScroll = ({ children }) => (
   </motion.div>
 );
 
+// Splash screen exibida no carregamento inicial
+const SplashScreen = ({ visible }) => {
+  if (!visible) return null;
+  return (
+    <div className="fixed inset-0 bg-white dark:bg-gray-900 flex items-center justify-center z-50 transition-opacity duration-500">
+      <div className="flex flex-col items-center gap-4">
+        <img src="/logo.png" alt="logo" className="w-36 h-36 object-contain animate-pulse" />
+        <div className="text-xl font-bold text-gray-800 dark:text-gray-100">Estação Clima</div>
+      </div>
+    </div>
+  );
+};
+
+// Componente de Toast simples
+const Toast = ({ visible, message, image }) => (
+  <div
+    className={`fixed bottom-6 right-6 z-50 transition-all duration-300 ${
+      visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0 pointer-events-none"
+    }`}
+  >
+    <div className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg shadow-lg px-4 py-3 flex items-center gap-3">
+      {image && (
+        <img src={image} className="w-10 h-10 object-contain rounded-md" alt="produto" />
+      )}
+      <div>
+        <p className="text-sm font-medium">{message}</p>
+      </div>
+    </div>
+  </div>
+);
+
 const Header = ({
   onCartClick,
   cartItemCount,
   onSearchClick,
-  onToggleTheme,
-  theme,
+  setCartButtonElement,
+  showToast,
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isPulsingCart, setIsPulsingCart] = useState(false);
+  const [cartConfirm, setCartConfirm] = useState(false);
+  const cartConfirmTimeoutRef = useRef(null);
+  const cartBtnRef = useRef(null);
+
+  useEffect(() => {
+    return () => clearTimeout(cartConfirmTimeoutRef.current);
+  }, []);
+
+  useEffect(() => {
+    if (setCartButtonElement) setCartButtonElement(cartBtnRef.current);
+  }, [setCartButtonElement]);
+
+  const handleCartClickLocal = () => {
+    if (window.innerWidth < 768) {
+      if (!cartConfirm) {
+        setCartConfirm(true);
+        showToast && showToast({ visible: true, message: "Toque novamente para abrir o carrinho", image: null });
+        cartConfirmTimeoutRef.current = setTimeout(() => {
+          setCartConfirm(false);
+          showToast && showToast({ visible: false, message: "", image: "" });
+        }, 1800);
+        return;
+      }
+      setCartConfirm(false);
+      showToast && showToast({ visible: false, message: "", image: "" });
+    }
+    setIsPulsingCart(true);
+    onCartClick();
+    setTimeout(() => setIsPulsingCart(false), 350);
+  };
 
   return (
     <>
@@ -233,12 +295,13 @@ const Header = ({
               <Search className="text-gray-700 dark:text-gray-300" />
             </button>
             <button
-              onClick={onCartClick}
-              className="relative p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              ref={cartBtnRef}
+              onClick={handleCartClickLocal}
+              className={`relative p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-transform duration-200 ${isPulsingCart ? 'scale-110 ring-2 ring-sky-300' : ''}`}
             >
-              <ShoppingCart className="text-gray-700 dark:text-gray-300" />
+              <ShoppingCart className="text-gray-700 dark:text-gray-300" size={22} />
               {cartItemCount > 0 && (
-                <span className="absolute top-0 right-0 h-5 w-5 rounded-full bg-red-500 text-white text-xs flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 h-6 w-6 rounded-full bg-red-500 text-white text-xs flex items-center justify-center">
                   {cartItemCount}
                 </span>
               )}
@@ -388,67 +451,76 @@ const ImageCarousel = ({ images, onImageClick }) => {
   }, [handleNext]);
   return (
     <AnimateOnScroll>
-      <div className="w-full items-center justify-center flex flex-col lg:bg-gray-800 rounded-md">
-        <div
-          className="items-center justify-center flex flex-col relative w-full overflow-hidden rounded-lg my-8  lg:mx-auto"
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-          onTouchStart={handleMouseDown}
-          onTouchMove={handleMouseMove}
-          onTouchEnd={handleMouseUp}
-        >
-          <div
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{
-              transform: `translateX(calc(-${
-                currentIndex * 100
-              }% + ${translateX}px))`,
-            }}
-          >
-            {images.map((img) => (
+      <div className="w-full my-8">
+        <div className="flex flex-col lg:flex-row items-center gap-6">
+          <div className="w-full lg:w-2/3 bg-gray-50 dark:bg-gray-900 rounded-lg overflow-hidden relative">
+            <div
+              className="relative w-full overflow-hidden"
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+              onTouchStart={handleMouseDown}
+              onTouchMove={handleMouseMove}
+              onTouchEnd={handleMouseUp}
+            >
               <div
-                key={img.id}
-                className="w-full flex-shrink-0"
-                onClick={() =>
-                  !isDragging && translateX === 0 && onImageClick(img.src)
-                }
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{
+                  transform: `translateX(calc(-${
+                    currentIndex * 100
+                  }% + ${translateX}px))`,
+                }}
               >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="w-full h-164 md:h-96 object-cover lg:object-contain cursor-pointer"
-                />
-                <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-6">
-                  <h2 className="text-white text-2xl md:text-4xl font-bold">
-                    {img.alt}
-                  </h2>
-                </div>
+                {images.map((img) => (
+                  <div
+                    key={img.id}
+                    className="w-full flex-shrink-0"
+                    onClick={() =>
+                      !isDragging && translateX === 0 && onImageClick(img.src)
+                    }
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full h-64 md:h-96 lg:h-[420px] object-contain cursor-pointer bg-gray-100 dark:bg-gray-800"
+                    />
+                    <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/40 to-transparent p-6">
+                      <h2 className="text-white text-xl md:text-3xl font-bold">
+                        {img.alt}
+                      </h2>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+              <button
+                onClick={handlePrev}
+                className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md transition-all z-10"
+              >
+                <ChevronLeft />
+              </button>
+              <button
+                onClick={handleNext}
+                className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md transition-all z-10"
+              >
+                <ChevronRight />
+              </button>
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                {images.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`h-2 w-2 rounded-full ${
+                      currentIndex === index ? "bg-white" : "bg-white/60"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
-          <button
-            onClick={handlePrev}
-            className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/50 hover:bg-white p-2 rounded-full shadow-md transition-all z-10"
-          >
-            <ChevronLeft />
-          </button>
-          <button
-            onClick={handleNext}
-            className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/50 hover:bg-white p-2 rounded-full shadow-md transition-all z-10"
-          >
-            <ChevronRight />
-          </button>
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-            {images.map((_, index) => (
-              <div
-                key={index}
-                className={`h-2 w-2 rounded-full ${
-                  currentIndex === index ? "bg-white" : "bg-white/50"
-                }`}
-              />
-            ))}
+          <div className="w-full lg:w-1/3 p-6 rounded-lg bg-gradient-to-tr from-sky-50 to-white dark:from-gray-800 dark:to-gray-900 shadow">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-3">Climatize com conforto e economia</h2>
+            <p className="text-gray-600 dark:text-gray-400 mb-6">Selecione entre nossos produtos e serviços para manter seu ambiente sempre na temperatura ideal. Qualidade e assistência técnica garantidas.</p>
+            <button onClick={() => document.getElementById('produtos')?.scrollIntoView({behavior: 'smooth'})} className="bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-full shadow-md">Ver Produtos</button>
           </div>
         </div>
       </div>
@@ -462,29 +534,33 @@ const ProductCard = React.forwardRef(({ product, onAddToCart }, ref) => {
   const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const selectedVariant = product.variants[selectedVariantIndex];
-  const handleAddToCartClick = () => {
-    onAddToCart(product, selectedVariant, quantity);
+  const handleAddToCartClick = (e) => {
+    const imgEl = e?.currentTarget?.closest('[data-product-card]')?.querySelector('img');
+    onAddToCart(product, selectedVariant, quantity, imgEl);
     setQuantity(1);
   };
 
   return (
     <div
       ref={ref}
-      className="w-full lg:items-center gap-5 lg:hover:scale-105 bg-white/10 lg:rounded-xl mx-auto cardProducts dark:bg-gray-800 rounded-2xl shadow-lg shadow-blue-900/10 dark:shadow-gray-900/10 hover:shadow-blue-950/40 dark:hover:shadow-gray-950/40 overflow-hidden flex flex-col lg:grid lg:grid-cols-2 lg:gap-3 lg:min-w-[400px] transition-transform relative scroll-mt-20"
+      data-product-card
+      className="w-full h-full lg:items-center gap-5 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 mx-auto overflow-hidden flex flex-col lg:grid lg:grid-cols-2 lg:gap-3 lg:min-w-[420px] lg:min-h-[420px] relative scroll-mt-20 group"
     >
       {selectedVariant.isOnSale && (
-        <div className="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center space-x-1 z-10 animate-pulse duration-500 ease-in-out">
+        <div className="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center space-x-2 z-10 shadow-md">
           <Tag size={14} />
           <span>{selectedVariant.discountPercentage}% OFF</span>
         </div>
       )}
-      <img
-        src={product.image}
-        alt={product.name}
-        className="w-full lg:bg-cover lg:bg-center lg:max-h-[300px] lg:h-full bg-white h-52 object-contain transition-all ease-in-out  duration-300"
-      />
-      <div className="py-5 px-4 flex flex-col lg:h-full flex-grow">
-        <h3 className="text-xl font-bold text-gray-800 text-center dark:text-gray-200 mb-2 flex-grow">
+      <div className="w-full bg-gray-100 dark:bg-gray-700 h-52 md:h-56 lg:h-full lg:max-h-[300px] overflow-hidden flex items-center justify-center rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="max-w-[90%] max-h-[90%] object-contain p-3 transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
+      <div className="py-5 px-4 flex flex-col lg:h-full flex-grow rounded-b-2xl lg:rounded-r-2xl lg:rounded-bl-none">
+        <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-2 flex-grow text-left">
           {product.name}
         </h3>
         {product.variants.length > 1 && (
@@ -499,7 +575,7 @@ const ProductCard = React.forwardRef(({ product, onAddToCart }, ref) => {
               id={`variant-${product.id}`}
               value={selectedVariantIndex}
               onChange={(e) => setSelectedVariantIndex(e.target.value)}
-              className="w-full cursor-pointer appearance-none pl-3 pr-10 py-2 border border-gray-300 dark:border-gray-600 bg-purple-50 dark:bg-gray-700 text-gray-900 dark:text-gray-200 rounded-2xl shadow-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition"
+              className="w-full cursor-pointer appearance-none pl-3 pr-10 py-2 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg shadow-sm focus:ring-2 focus:ring-sky-400 focus:border-sky-400 transition"
             >
               {product.variants.map((variant, index) => (
                 <option key={variant.id} value={index}>
@@ -513,34 +589,30 @@ const ProductCard = React.forwardRef(({ product, onAddToCart }, ref) => {
           </div>
         )}
         <div className="mt-auto">
-          <div className="mb-4 h-14 justify-center flex lg:items-center lg:justify-center gap-1">
-            {selectedVariant.isOnSale ? (
-              <div>
-                <p className="text-base text-gray-400 dark:text-gray-500 line-through">
-                  R${" "}
-                  {selectedVariant.originalPrice.toFixed(2).replace(".", ",")}
-                </p>
-                <p className="text-3xl font-bold text-red-600">
+          <div className="mb-4 flex items-center justify-between gap-4">
+            <div>
+              {selectedVariant.isOnSale ? (
+                <>
+                  <p className="text-sm text-gray-400 dark:text-gray-500 line-through">
+                    R$ {selectedVariant.originalPrice.toFixed(2).replace(".", ",")}
+                  </p>
+                  <p className="text-3xl font-extrabold text-red-600">
+                    R$ {selectedVariant.price.toFixed(2).replace(".", ",")}
+                  </p>
+                </>
+              ) : (
+                <p className="text-3xl font-extrabold text-sky-600 dark:text-sky-400">
                   R$ {selectedVariant.price.toFixed(2).replace(".", ",")}
                 </p>
-              </div>
-            ) : (
-              <p className="text-3xl lg:text-xl font-bold lg:font-extrabold text-blue-600 dark:text-blue-500">
-                R$ {selectedVariant.price.toFixed(2).replace(".", ",")}
-              </p>
-            )}
-            {selectedVariant.byMeter && !selectedVariant.isOnSale && (
-              <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                {" "}
-                / metro
-              </span>
-            )}
-            {selectedVariant.byMeter && selectedVariant.isOnSale && (
-              <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                {" "}
-                / metro (promo)
-              </span>
-            )}
+              )}
+            </div>
+            <div className="flex items-center gap-2">
+              {selectedVariant.byMeter && (
+                <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full border border-gray-200 dark:border-gray-700">
+                  / metro
+                </span>
+              )}
+            </div>
           </div>
           {selectedVariant.byMeter && (
             <div className="flex items-center space-x-2 mb-4">
@@ -557,13 +629,13 @@ const ProductCard = React.forwardRef(({ product, onAddToCart }, ref) => {
                 onChange={(e) =>
                   setQuantity(Math.max(1, parseInt(e.target.value) || 1))
                 }
-                className="w-20 border-gray-300 px-2 py-1 text-center text-lg font-bold dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                className="w-20 border-gray-300 px-2 py-1 text-center text-lg font-bold dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 rounded-md shadow-sm focus:ring-sky-300 focus:border-sky-300"
               />
             </div>
           )}
           <button
             onClick={handleAddToCartClick}
-            className="w-ful mx-auto lg:p-2 lg:text-xs bg-blue-700 hover:bg-blue-600 dark:hover:bg-blue-900 dark:bg-blue-800  text-white font-bold py-2 px-4 rounded-2xl transition-all flex items-center justify-center space-x-2"
+            className="w-full mx-auto lg:p-2 lg:text-sm bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-700 hover:to-blue-700 text-white font-semibold py-3 px-4 rounded-full transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 focus:outline-none focus:ring-4 focus:ring-sky-300/40 active:scale-95"
           >
             <ShoppingCart className="lg:w-[17px] lg:h-[17px]" size={25} />
             <span>Adicionar ao Carrinho</span>
@@ -576,6 +648,85 @@ const ProductCard = React.forwardRef(({ product, onAddToCart }, ref) => {
 //########################
 
 // LISTÁGEM DE PRODUTOS E TAGS
+
+// Componente CategoryCard: cartão moderno que agrupa uma categoria e mostra produtos em grid uniformizado
+const CategoryCard = React.forwardRef(({ category, items, onAddToCart, productRefs }, ref) => {
+  const [showAll, setShowAll] = useState(false);
+  const previewCount = 6;
+  const visibleItems = showAll ? items : items.slice(0, previewCount);
+
+  return (
+    <div
+      ref={ref}
+      className="w-full bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm p-6 transition-all hover:shadow-lg"
+    >
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-lg bg-gradient-to-tr from-sky-600 to-blue-600 flex items-center justify-center text-white shadow-md">
+            <AirVentIcon size={20} />
+          </div>
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-gray-100">
+              {category}
+            </h3>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{items.length} produto(s)</p>
+          </div>
+        </div>
+        <button
+          onClick={() => setShowAll((s) => !s)}
+          className="text-sm font-semibold text-sky-600 dark:text-sky-400 hover:underline"
+        >
+          {showAll ? "Mostrar menos" : `Ver todos (${items.length})`}
+        </button>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {visibleItems.map((product) => {
+          const previewVariant = product.variants[0];
+          return (
+            <div
+              key={product.id}
+              ref={(el) => productRefs && (productRefs.current[product.id] = el)}
+              data-product-preview
+              className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-xl p-3 shadow-sm hover:shadow-md transition flex flex-col h-full"
+            >
+              <div className="w-full h-40 mb-3 overflow-hidden rounded-md bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="max-w-[90%] max-h-[90%] object-contain p-2 transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <div className="flex-1">
+                <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-100 mb-1">
+                  {product.name}
+                </h4>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">{previewVariant.name}</p>
+              </div>
+              <div className="mt-3 flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-gray-400 dark:text-gray-500 line-through">
+                    R$ {previewVariant.originalPrice.toFixed(2).replace(".", ",")}
+                  </p>
+                  <p className="text-lg font-extrabold text-sky-600 dark:text-sky-400">R$ {previewVariant.price.toFixed(2).replace(".", ",")}</p>
+                </div>
+                <button
+                  onClick={(e) => {
+                    const imgEl = e.currentTarget.closest('[data-product-preview]')?.querySelector('img');
+                    onAddToCart(product, previewVariant, 1, imgEl);
+                  }}
+                  className="bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-full shadow-md text-sm transform active:scale-95 transition-all"
+                >
+                  <ShoppingCart size={18} />
+                </button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+});
 const ProductList = ({ products, onAddToCart, categoryRefs, productRefs }) => {
   const handleFilterClick = (category) => {
     categoryRefs.current[category].scrollIntoView({
@@ -596,7 +747,7 @@ const ProductList = ({ products, onAddToCart, categoryRefs, productRefs }) => {
               <button
                 key={category}
                 onClick={() => handleFilterClick(category)}
-                className="px-4 py-2 bg-blue-50 shadow-lg hover:shadow-blue-950/40 dark:bg-gray-700  dark:text-gray-300 rounded-full hover:bg-blue-900 dark:hover:bg-blue-950 hover:text-white dark:hover:text-white transition-colors"
+                className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 rounded-full hover:bg-sky-600 hover:text-white transition-colors shadow-sm"
               >
                 {category}
               </button>
@@ -611,23 +762,13 @@ const ProductList = ({ products, onAddToCart, categoryRefs, productRefs }) => {
           className="px-6 lg:px-0 justify-center items-center mb-12 mt-24 scroll-mt-20"
         >
           <AnimateOnScroll>
-            <h2 className="flex gap-3 text-xl lg:text-4xl font-bold text-gray-800 dark:text-gray-200 mb-10 dark:border-blue-500 justify-center md:pl-4 bg-blue-300/40 p-2 rounded-full">
-              <AirVentIcon
-                className="text-blue-500 flex items-center justify-center"
-                size={33}
-              />{" "}
-              {category}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {items.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  ref={(el) => (productRefs.current[product.id] = el)}
-                  product={product}
-                  onAddToCart={onAddToCart}
-                />
-              ))}
-            </div>
+            <CategoryCard
+              ref={(el) => (categoryRefs.current[category] = el)}
+              category={category}
+              items={items}
+              onAddToCart={onAddToCart}
+              productRefs={productRefs}
+            />
           </AnimateOnScroll>
         </div>
       ))}
@@ -782,14 +923,16 @@ const ServicesCarousel = ({ services }) => {
             {services.map((service) => (
               <div
                 key={service.id}
-                className="flex-shrink-0 w-72 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden group"
+                className="flex-shrink-0 w-72 md:w-80 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden group"
               >
                 <div className="relative">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-96 h-96 object-cover lg:object-contain transition-transform duration-300 group-hover:scale-110"
-                  />
+                  <div className="w-full h-56 md:h-64 lg:h-72 overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 flex items-center space-x-2">
                     <Wrench
@@ -1221,10 +1364,10 @@ const Cart = ({ isOpen, onClose, cart, updateCart, clearCart }) => {
       onClick={onClose}
     >
       <div
-        className="w-full max-w-md h-full bg-blue-100 dark:bg-gray-800 shadow-2xl flex flex-col"
+        className="w-full max-w-md h-full bg-white dark:bg-gray-900 shadow-2xl flex flex-col rounded-l-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="p-4 flex justify-between items-center border-b dark:border-gray-700">
+        <div className="p-4 flex justify-between items-center border-b dark:border-gray-700 bg-gradient-to-r from-sky-50 to-white dark:from-gray-800 dark:to-gray-900">
           <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200">
             Seu Carrinho
           </h2>
@@ -1239,7 +1382,7 @@ const Cart = ({ isOpen, onClose, cart, updateCart, clearCart }) => {
           <div className="flex-grow flex flex-col items-center justify-center text-center p-4">
             <ShoppingCart
               size={64}
-              className="text-gray-300 dark:text-gray-600 mb-4"
+              className="text-gray-400 dark:text-gray-500 mb-4"
             />
             <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300">
               Seu carrinho está vazio.
@@ -1259,7 +1402,7 @@ const Cart = ({ isOpen, onClose, cart, updateCart, clearCart }) => {
                   <img
                     src={item.image}
                     alt={item.fullName}
-                    className="w-20 h-20 object-cover rounded-md"
+                    className="w-20 h-20 object-contain rounded-md bg-white dark:bg-gray-800 p-1"
                   />
                   <div className="flex-grow">
                     <p className="font-semibold text-gray-800 dark:text-gray-200">
@@ -1317,7 +1460,7 @@ const Cart = ({ isOpen, onClose, cart, updateCart, clearCart }) => {
               </div>
               <button
                 onClick={handleFinalize}
-                className="w-full bg-green-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-green-600 transition-all flex items-center justify-center space-x-2"
+                className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold py-3 px-4 rounded-lg hover:from-green-600 hover:to-emerald-600 transition-all flex items-center justify-center space-x-2 shadow-md"
               >
                 <WhatsAppIcon className="w-6 h-6" />
                 <span>Finalizar Pedido</span>
@@ -1580,6 +1723,8 @@ export default function App() {
   const [isBtuModalOpen, setIsBtuModalOpen] = useState(false);
   const [btuResult, setBtuResult] = useState(0);
   const [theme, setTheme] = useState("dark");
+  const [isLoading, setIsLoading] = useState(true);
+  const [toast, setToast] = useState({ visible: false, message: "", image: "" });
 
   useEffect(() => {
     try {
@@ -1611,14 +1756,64 @@ export default function App() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
+  // Splash: esconde após carregamento ou timeout curto
+  useEffect(() => {
+    const onLoad = () => setTimeout(() => setIsLoading(false), 700);
+    if (document.readyState === "complete") {
+      setTimeout(() => setIsLoading(false), 700);
+    } else {
+      window.addEventListener("load", onLoad);
+      return () => window.removeEventListener("load", onLoad);
+    }
+  }, []);
+
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
   const categoryRefs = useRef({});
   const productRefs = useRef({});
+  const cartButtonRef = useRef(null);
+  const setCartButtonElement = (el) => (cartButtonRef.current = el);
+  const showToast = (payload) => {
+    setToast(payload || { visible: false, message: "", image: "" });
+    if (payload && payload.visible) {
+      setTimeout(() => setToast({ visible: false, message: "", image: "" }), payload.duration ?? 1800);
+    }
+  };
 
-  const handleAddToCart = (product, selectedVariant, quantity) => {
+  const animateFlyToCart = (startEl, imageSrc) => {
+    if (!startEl || !cartButtonRef.current) return;
+    try {
+      const startRect = startEl.getBoundingClientRect();
+      const endRect = cartButtonRef.current.getBoundingClientRect();
+      const flyer = document.createElement("div");
+      flyer.style.position = "fixed";
+      flyer.style.left = `${startRect.left}px`;
+      flyer.style.top = `${startRect.top}px`;
+      flyer.style.width = `${Math.min(64, startRect.width)}px`;
+      flyer.style.height = `${Math.min(64, startRect.height)}px`;
+      flyer.style.zIndex = 9999;
+      flyer.style.borderRadius = "8px";
+      flyer.style.overflow = "hidden";
+      flyer.style.boxShadow = "0 8px 24px rgba(2,6,23,0.2)";
+      flyer.style.transition = "transform 700ms cubic-bezier(.2,.8,.2,1), opacity 700ms";
+      flyer.style.pointerEvents = "none";
+      flyer.innerHTML = `<img src="${imageSrc}" style="width:100%;height:100%;object-fit:cover;display:block;" />`;
+      document.body.appendChild(flyer);
+      const deltaX = endRect.left + endRect.width / 2 - (startRect.left + startRect.width / 2);
+      const deltaY = endRect.top + endRect.height / 2 - (startRect.top + startRect.height / 2);
+      requestAnimationFrame(() => {
+        flyer.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(0.2)`;
+        flyer.style.opacity = "0";
+      });
+      flyer.addEventListener("transitionend", () => flyer.remove());
+    } catch (e) {
+      console.error("Erro na animação fly-to-cart:", e);
+    }
+  };
+
+  const handleAddToCart = (product, selectedVariant, quantity, startElement) => {
     setCart((prevCart) => {
       const cartItemId = selectedVariant.id;
       const existingItem = prevCart.find((item) => item.id === cartItemId);
@@ -1640,7 +1835,17 @@ export default function App() {
       };
       return [...prevCart, newItem];
     });
-    setIsCartOpen(true);
+    // não abrir o drawer automaticamente — apenas mostrar toast e animação
+    try {
+      setToast({ visible: true, message: `${product.name} (${selectedVariant.name}) adicionado ao carrinho`, image: product.image });
+      setTimeout(() => setToast({ visible: false, message: "", image: "" }), 3000);
+      // animação da sacolinha (se disponível o elemento de origem)
+      if (startElement) {
+        animateFlyToCart(startElement, product.image);
+      }
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   const handleCalculateBtu = (result) => {
@@ -1675,7 +1880,11 @@ export default function App() {
         onSearchClick={() => setIsSearchModalOpen(true)}
         onToggleTheme={toggleTheme}
         theme={theme}
+        setCartButtonElement={setCartButtonElement}
+        showToast={showToast}
       />
+      <SplashScreen visible={isLoading} />
+      <Toast visible={toast.visible} message={toast.message} image={toast.image} />
       <main className="container mx-auto px-4">
         <ImageCarousel
           images={carouselImages}

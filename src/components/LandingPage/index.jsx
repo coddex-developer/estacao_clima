@@ -658,7 +658,7 @@ const CategoryCard = React.forwardRef(({ category, items, onAddToCart, productRe
   return (
     <div
       ref={ref}
-      className="w-full bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm p-6 transition-all hover:shadow-lg"
+      className="w-full dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm p-6 transition-all hover:shadow-lg"
     >
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-4">
@@ -689,9 +689,9 @@ const CategoryCard = React.forwardRef(({ category, items, onAddToCart, productRe
               key={product.id}
               ref={(el) => productRefs && (productRefs.current[product.id] = el)}
               data-product-preview
-              className="bg-gradient-to-b from-gray-100 to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-xl p-3 shadow-sm hover:shadow-md transition flex flex-col h-full"
+              className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-xl p-3 shadow-sm hover:shadow-md transition flex flex-col h-full"
             >
-              <div className="w-full bg-white h-40 mb-5 overflow-hidden rounded-md bg-whyte dark:bg-gray-800 flex items-center justify-center">
+              <div className="w-full bg-sky-50 h-40 mb-5 overflow-hidden rounded-md bg-whyte dark:bg-gray-800 flex items-center justify-center">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -760,7 +760,7 @@ const ProductList = ({ products, onAddToCart, categoryRefs, productRefs }) => {
         <div
           key={category}
           ref={(el) => (categoryRefs.current[category] = el)}
-          className="px-6 lg:px-0 justify-center items-center mb-12 mt-24 scroll-mt-20"
+          className="lg:px-0 justify-center items-center mb-12 mt-24 scroll-mt-20"
         >
           <AnimateOnScroll>
             <CategoryCard

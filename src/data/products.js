@@ -52,8 +52,7 @@ export const products = [
     image: "/images_products/servico.webp",
     name: "Válvula de serviço",
     info: [
-      { item: "Válvula de 1/4 - R$ 45,00" },
-      { item: "Válvula de 3/8 - R$ 52,00" }
+      { item: "Válvula de 1/4 - R$ 45,00" }
     ],
   },
 
@@ -100,17 +99,16 @@ export const products = [
 
   {
     id: 50,
-    type: ["Fixação e Suporte"],
+    type: ["Suporte"],
     image: "/images_products/suporte-cond-eos.webp",
     name: "Suporte para Condensadora",
     info: [
-      { item: "Suporte de 400mm - R$ 35,00" },
-      { item: "Suporte de 500mm - R$ 55,00" }
+      { item: "Suporte de 400mm - R$ 35,00" }
     ],
   },
   {
     id: 5034988998485,
-    type: ["Fixação e Suporte"],
+    type: ["Suporte"],
     image: "/images_products/suporte-cond-eos.webp",
     name: "Suporte para Condensadora",
     info: [
@@ -120,7 +118,7 @@ export const products = [
 
   {
     id: 5021233,
-    type: ["Fixação e Suporte"],
+    type: ["Suporte"],
     image: "/images_products/suporte-cond-eos.webp",
     name: "Suporte para Condensadora 450mm",
     info: [
@@ -130,7 +128,7 @@ export const products = [
 
   {
     id: 502,
-    type: ["Fixação e Suporte"],
+    type: ["Fixação"],
     image: "/images_products/ParafusoSextavada10mm.jpg",
     name: "Parafuso Para Bucha Sextavada",
     info: [{ item: "10mm 1/4x55 - R$ 0,85" }],
@@ -138,7 +136,7 @@ export const products = [
 
   {
     id: 502132234713,
-    type: ["Fixação e Suporte"],
+    type: ["Fixação"],
     image: "/images_products/buchas-8-10.jpg",
     name: "Bucha Tijolo Bloco Parede Oca",
     info: [
@@ -147,7 +145,7 @@ export const products = [
   },
   {
     id: 5021322347913,
-    type: ["Fixação e Suporte"],
+    type: ["Fixação"],
     image: "/images_products/buchas-8-10.jpg",
     name: "Bucha Tijolo Bloco Parede Oca",
     info: [
@@ -156,12 +154,15 @@ export const products = [
   },
 
   {
-    id: 503,
-    type: ["Fixação e Suporte"],
+    id: 192837465,
+    type: ["Fixação"],
     image: "/images_products/parafusoEvap.webp",
     name: "Parafuso Philips Chata",
-    info: [{ item: "8mm - R$ 0,25" }],
+    info: [
+      { item: "8mm - R$ 0,25"}
+    ],
   },
+
   {
     id: 6,
     type: ["Gás Refrigerante"],

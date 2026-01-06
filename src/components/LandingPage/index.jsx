@@ -1792,13 +1792,13 @@ export default function App() {
       flyer.style.position = "fixed";
       flyer.style.left = `${startRect.left}px`;
       flyer.style.top = `${startRect.top}px`;
-      flyer.style.width = `${Math.min(64, startRect.width)}px`;
-      flyer.style.height = `${Math.min(64, startRect.height)}px`;
+      flyer.style.width = `${Math.min(9000, startRect.width)}px`;
+      flyer.style.height = `${Math.min(9000, startRect.height)}px`;
       flyer.style.zIndex = 9999;
       flyer.style.borderRadius = "8px";
       flyer.style.overflow = "hidden";
       flyer.style.boxShadow = "0 8px 24px rgba(2,6,23,0.2)";
-      flyer.style.transition = "transform 700ms cubic-bezier(.2,.8,.2,1), opacity 700ms";
+      flyer.style.transition = "transform 900ms cubic-bezier(.2,.8,.2,1), opacity 900ms";
       flyer.style.pointerEvents = "none";
       flyer.innerHTML = `<img src="${imageSrc}" style="width:100%;height:100%;object-fit:cover;display:block;" />`;
       document.body.appendChild(flyer);

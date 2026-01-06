@@ -1,15 +1,48 @@
 export const products = [
   {
     id: 1,
-    type: ["Isolamento e Tubulação"],
+    type: ["Isolamento para Tubulação"],
     image: "/images_products/esponjosoweb.jpg",
     name: "Esponjoso",
     info: [
-      { item: "Tamanho 1/4 - R$ 3,50" },
-      { item: "Tamanho 3/8 - R$ 3,80" },
-      { item: "Tamanho 1/2 - R$ 4,50" },
-      { item: "Tamanho 5/8 - R$ 4,50" },
-      { item: "Tamanho 3/4 - R$ 6,00" },
+      { item: "Tamanho 1/4 - R$ 3,50" }
+    ],
+  },
+  {
+    id: 1214214,
+    type: ["Isolamento para Tubulação"],
+    image: "/images_products/esponjosoweb.jpg",
+    name: "Esponjoso",
+    info: [
+      { item: "Tamanho 3/8 - R$ 3,80" }
+    ],
+  },
+
+  {
+    id: 14324123,
+    type: ["Isolamento para Tubulação"],
+    image: "/images_products/esponjosoweb.jpg",
+    name: "Esponjoso",
+    info: [
+      { item: "Tamanho 1/2 - R$ 4,50" }
+    ],
+  },
+  {
+    id: 12342342321,
+    type: ["Isolamento para Tubulação"],
+    image: "/images_products/esponjosoweb.jpg",
+    name: "Esponjoso",
+    info: [
+      { item: "Tamanho 5/8 - R$ 4,50" }
+    ],
+  },
+  {
+    id: 1213424234234444,
+    type: ["Isolamento para Tubulação"],
+    image: "/images_products/esponjosoweb.jpg",
+    name: "Esponjoso",
+    info: [
+      { item: "Tamanho 3/4 - R$ 6,00" }
     ],
   },
 
@@ -25,8 +58,18 @@ export const products = [
   },
 
   {
+    id: 1475992372340,
+    type: ["Válvulas de Serviço"],
+    image: "/images_products/servico.webp",
+    name: "Válvula de serviço",
+    info: [
+      { item: "Válvula de 3/8 - R$ 52,00" }
+    ],
+  },
+
+  {
     id: 2,
-    type: ["Isolamento e Tubulação"],
+    type: ["Tubulação"],
     image: "/images_products/cobre.webp",
     name: "Tubo de cobre vendido por quilo",
     info: [
@@ -54,6 +97,7 @@ export const products = [
     name: "Fita PVC EOS",
     info: [{ item: "Rolo com 10m linear x 0.10m largura - R$ 6,00" }],
   },
+
   {
     id: 50,
     type: ["Fixação e Suporte"],
@@ -64,6 +108,16 @@ export const products = [
       { item: "Suporte de 500mm - R$ 55,00" }
     ],
   },
+  {
+    id: 5034988998485,
+    type: ["Fixação e Suporte"],
+    image: "/images_products/suporte-cond-eos.webp",
+    name: "Suporte para Condensadora",
+    info: [
+      { item: "Suporte de 500mm - R$ 55,00" }
+    ],
+  },
+
   {
     id: 5021233,
     type: ["Fixação e Suporte"],
@@ -88,7 +142,15 @@ export const products = [
     image: "/images_products/buchas-8-10.jpg",
     name: "Bucha Tijolo Bloco Parede Oca",
     info: [
-      { item: "Bucha 8mm - R$ 0,20" },
+      { item: "Bucha 8mm - R$ 0,20" }
+    ],
+  },
+  {
+    id: 5021322347913,
+    type: ["Fixação e Suporte"],
+    image: "/images_products/buchas-8-10.jpg",
+    name: "Bucha Tijolo Bloco Parede Oca",
+    info: [
       { item: "Bucha 10mm - R$ 0,35"}
     ],
   },

@@ -689,9 +689,9 @@ const CategoryCard = React.forwardRef(({ category, items, onAddToCart, productRe
               key={product.id}
               ref={(el) => productRefs && (productRefs.current[product.id] = el)}
               data-product-preview
-              className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-xl p-3 shadow-sm hover:shadow-md transition flex flex-col h-full"
+              className="bg-gradient-to-b from-sky-500/10 to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-xl p-3 shadow-sm hover:shadow-md transition flex flex-col h-full"
             >
-              <div className="w-full bg-sky-50 h-40 mb-5 overflow-hidden rounded-md bg-whyte dark:bg-gray-800 flex items-center justify-center">
+              <div className="w-full bg-white h-40 mb-5 overflow-hidden rounded-md bg-whyte dark:bg-gray-800 flex items-center justify-center">
                 <img
                   src={product.image}
                   alt={product.name}

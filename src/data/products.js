@@ -106,15 +106,6 @@ export const products = [
       { item: "Suporte de 400mm - R$ 35,00" }
     ],
   },
-  {
-    id: 5034988998485,
-    type: ["Suporte"],
-    image: "/images_products/suporte-cond-eos.webp",
-    name: "Suporte para Condensadora",
-    info: [
-      { item: "Suporte de 500mm - R$ 55,00" }
-    ],
-  },
 
   {
     id: 5021233,
@@ -123,6 +114,16 @@ export const products = [
     name: "Suporte para Condensadora 450mm",
     info: [
       { item: "Suporte de 450 - R$ 39,00" }
+    ],
+  },
+
+  {
+    id: 5034988998485,
+    type: ["Suporte"],
+    image: "/images_products/suporte-cond-eos.webp",
+    name: "Suporte para Condensadora",
+    info: [
+      { item: "Suporte de 500mm - R$ 55,00" }
     ],
   },
 

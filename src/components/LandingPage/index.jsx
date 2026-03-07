@@ -937,7 +937,7 @@ const ServicesCarousel = ({ services }) => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 flex items-center space-x-2">
                     <Wrench
-                      className="text-white bg-black/50 shadow-md shadow-black p-1 size-8 rounded-full"
+                      className="text-white bg-neutral-900/50 shadow-xl shadow-black p-1 size-8 rounded-lg"
                       size={20}
                     />
                     <h3 className="text-white text-lg font-semibold">

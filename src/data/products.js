@@ -72,7 +72,7 @@ export const products = [
     image: "/images_products/cobre.webp",
     name: "Tubo de cobre vendido por quilo",
     info: [
-      { item: "Tubo de cobre Kg - R$ 123,00/Kg" },
+      { item: "Tubo de cobre Kg - R$ 290,00/Kg" },
     ],
   },
   {
